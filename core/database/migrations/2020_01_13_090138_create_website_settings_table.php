@@ -24,7 +24,14 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('landing1_slider2')->nullable();
             $table->string('landing1_sub_header3')->nullable();
             $table->string('landing1_header3')->nullable();
-            $table->string('landing1_slider3')->nullable();    
+            $table->string('landing1_slider3')->nullable();
+
+            $table->text('about_us')->nullable();    
+
+            $table->string('footer_header_1')->nullable();
+            $table->text('footer_text_1')->nullable();
+            $table->string('footer_header_2')->nullable();
+            $table->text('footer_text_2')->nullable();
 
             $table->tinyInteger('status')->default(1);
 

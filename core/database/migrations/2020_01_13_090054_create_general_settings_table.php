@@ -21,13 +21,8 @@ class CreateGeneralSettingsTable extends Migration
 
             $table->string('email')->nullable();
             $table->string('location')->nullable();
-            $table->string('phone1')->nullable();
-            $table->string('phone2')->nullable();
-
-            $table->string('footer_header1')->nullable();
-            $table->text('footer_text1')->nullable();
-            $table->string('footer_header2')->nullable();
-            $table->text('footer_text2')->nullable();
+            $table->string('phone_1')->nullable();
+            $table->string('phone_2')->nullable();
 
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();

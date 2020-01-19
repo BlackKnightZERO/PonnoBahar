@@ -88,21 +88,33 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item has-treeview">
-                <a href="{{ route('super.admin.showlandingIteamsForm1') }}" class="nav-link" data-toggle="modal" data-target="#subCategoryModal">
+                <a href="{{ route('super.admin.showlandingIteamsForm1') }}" class="nav-link">
                   <i class="fas fa-arrow-circle-right nav-icon"></i>
                   <p>Landing Items 1</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('super.admin.showlandingIteamsForm2') }}" class="nav-link" data-toggle="modal" data-target="#subCategoryModal">
+                <a href="{{ route('super.admin.showlandingIteamsForm2') }}" class="nav-link">
                   <i class="fas fa-arrow-circle-right nav-icon"></i>
                   <p>Landing Items 2</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('super.admin.showlandingIteamsForm3') }}" class="nav-link" data-toggle="modal" data-target="#subCategoryModal">
+                <a href="{{ route('super.admin.showlandingIteamsForm3') }}" class="nav-link">
                   <i class="fas fa-arrow-circle-right nav-icon"></i>
                   <p>Landing Items 3</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('super.admin.showAboutUs') }}" class="nav-link">
+                  <i class="fas fa-arrow-circle-right nav-icon"></i>
+                  <p>About Us</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('super.admin.footerIteamsForm') }}" class="nav-link">
+                  <i class="fas fa-arrow-circle-right nav-icon"></i>
+                  <p>Footer</p>
                 </a>
               </li>
             </ul>
@@ -118,9 +130,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('super.admin.showBlog') }}" class="nav-link" data-toggle="modal" data-target="#subCategoryModal">
+                <a href="{{ route('super.admin.showBlog') }}" class="nav-link">
                   <i class="fas fa-arrow-circle-right nav-icon"></i>
-                  <p>Blogs</p>
+                  <p>Post New</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('super.admin.showBlog') }}" class="nav-link">
+                  <i class="fas fa-arrow-circle-right nav-icon"></i>
+                  <p>Edit Blogs</p>
                 </a>
               </li>
             </ul>
@@ -683,7 +701,7 @@
              </div> 
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
                 <input type="submit" class="btn btn-primary" value="Save changes" name="submit">
               </div>
             </div>
@@ -760,7 +778,7 @@
              </div> 
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
                 <input type="submit" class="btn btn-primary" value="Save changes" name="submit">
               </div>
             </div>
@@ -812,18 +830,31 @@
                   </div>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-8">
                 <label for="exampleName">Attribute</label>
                     <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Add An Attribute" name="name">
+                    <input type="text" class="form-control" placeholder="Add An Attribute" name="name[]">
+                      
                     </div>
+                </div>
+                <div class="col-md-4" style="margin-top: 7%;">
+
+                  <button class="btn btn-sm btn-success adder_att" id="adder_att">Add +</button>
+                  <button class="btn btn-sm btn-danger erase_att" id="erase_att">Remove -</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div id="append_input"></div>
+                  </div>
                 </div>
               </div>
 
              </div> 
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
                 <input type="submit" class="btn btn-primary" value="Save changes" name="submit">
               </div>
             </div>
@@ -841,6 +872,16 @@
               return false;
           return true;
         }
+
+        $('#adder_att').click(function(){
+            $('#append_input').append('<input type="text" class="form-control" placeholder="Additional Attribute" name="name[]"><br>');
+            event.preventDefault();
+        });
+        $('#erase_att').click(function(){
+           $("#append_input input:last-child").remove();
+           $("#append_input br:last-child").remove();
+            event.preventDefault();
+        });
 
         $(document).ready(function() {
          // alert('!');

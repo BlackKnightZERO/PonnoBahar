@@ -46,39 +46,39 @@
                     
                     <!-- Logo desktop -->       
                     <a href="#" class="logo">
-                        <img src="{{ asset('') }}assets/front-end-assets/images/icons/logo-01.png" alt="IMG-LOGO">
+                        <img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO">
                     </a>
 
                     <!-- Menu desktop -->
                     <div class="menu-desktop">
                         <ul class="main-menu">
                             <li class="active-menu">
-                                <a href="index.html">Home</a>
-                                <ul class="sub-menu">
+                                <a href="{{ route('land') }}">Home</a>
+                                <!-- <ul class="sub-menu">
                                     <li><a href="index.html">Homepage 1</a></li>
                                     <li><a href="home-02.html">Homepage 2</a></li>
                                     <li><a href="home-03.html">Homepage 3</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
 
                             <li>
-                                <a href="product.html">Shop</a>
+                                <a href="#">Shop</a>
                             </li>
 
                             <li class="label1" data-label1="hot">
-                                <a href="shoping-cart.html">Features</a>
+                                <a href="#">Features</a>
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a href="#">Blog</a>
                             </li>
 
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="#">About</a>
                             </li>
 
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="#">Contact</a>
                             </li>
                         </ul>
                     </div>  
@@ -111,7 +111,7 @@
         <div class="wrap-header-mobile">
             <!-- Logo moblie -->        
             <div class="logo-mobile">
-                <a href="index.html"><img src="{{ asset('') }}assets/front-end-assets/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+                <a href="index.html"><img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -142,35 +142,35 @@
         <div class="menu-mobile">
             <ul class="main-menu-m">
                 <li>
-                    <a href="index.html">Home</a>
-                    <ul class="sub-menu-m">
+                    <a href="#">Home</a>
+                    <!-- <ul class="sub-menu-m">
                         <li><a href="index.html">Homepage 1</a></li>
                         <li><a href="home-02.html">Homepage 2</a></li>
                         <li><a href="home-03.html">Homepage 3</a></li>
-                    </ul>
+                    </ul> -->
                     <span class="arrow-main-menu-m">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </span>
                 </li>
 
                 <li>
-                    <a href="product.html">Shop</a>
+                    <a href="#">Shop</a>
                 </li>
 
                 <li>
-                    <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+                    <a href="#" class="label1 rs1" data-label1="hot">Features</a>
                 </li>
 
                 <li>
-                    <a href="blog.html">Blog</a>
+                    <a href="#">Blog</a>
                 </li>
 
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="#">About</a>
                 </li>
 
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="#">Contact</a>
                 </li>
             </ul>
         </div>
@@ -179,7 +179,7 @@
         <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
             <div class="container-search-header">
                 <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                    <img src="{{ asset('') }}assets/front-end-assets/images/icons/icon-close2.png" alt="CLOSE">
+                    <img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="CLOSE">
                 </button>
 
                 <form class="wrap-search-header flex-w p-l-15">
@@ -206,7 +206,7 @@
             <div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
                 <ul class="sidebar-link w-full">
                     <li class="p-b-13">
-                        <a href="index.html" class="stext-102 cl2 hov-cl1 trans-04">
+                        <a href="{{ route('land') }}" class="stext-102 cl2 hov-cl1 trans-04">
                             Home
                         </a>
                     </li>
@@ -261,63 +261,68 @@
 
                 <div class="sidebar-gallery w-full p-tb-30">
                     <span class="mtext-101 cl5">
-                        @ CozaStore
+                        @ {{ $g_settings->title }}
                     </span>
 
                     <div class="flex-w flex-sb p-t-36 gallery-lb">
                         <!-- item gallery sidebar -->
+                        @if($product_img_9)
+                        @foreach($product_img_9 as $key => $value)
                         <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-01.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-01.jpg');"></a>
+                            <a class="item-gallery bg-img1" href="{{ asset('').'core/public/storage/'.$value->p_image }}" data-lightbox="gallery" 
+                            style="background-image: url({{ asset('').'core/public/storage/'.$value->p_image }});"></a>
                         </div>
+                        @endforeach
+                        @endif
+                        
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                       <!--  <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-02.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-02.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-03.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-03.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-04.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-04.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-05.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-05.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-06.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-06.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-07.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-07.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-08.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-08.jpg');"></a>
-                        </div>
+                        </div> -->
 
                         <!-- item gallery sidebar -->
-                        <div class="wrap-item-gallery m-b-10">
+                        <!-- <div class="wrap-item-gallery m-b-10">
                             <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-09.jpg" data-lightbox="gallery" 
                             style="background-image: url('images/gallery-09.jpg');"></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -327,7 +332,8 @@
                     </span>
 
                     <p class="stext-108 cl6 p-t-27">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis. 
+                        <!-- <div>{{ strip_tags($w_settings->about_us) }}</div> -->
+                        <div>{!! $w_settings->about_us !!}</div>
                     </p>
                 </div>
             </div>
@@ -426,18 +432,18 @@
     <section class="section-slide">
         <div class="wrap-slick1 rs1-slick1">
             <div class="slick1">
-                <div class="item-slick1" style="background-image: url({{ asset('') }}assets/front-end-assets/images/slide-03.jpg);">
+                <div class="item-slick1" style="background-image: url({{ asset('').'core/public/storage/'.$w_settings->landing1_slider1 }});">
                     <div class="container h-full">
                         <div class="flex-col-l-m h-full p-t-100 p-b-30">
                             <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
                                 <span class="ltext-202 cl2 respon2">
-                                    Men Collection 2018
+                                    {{ $w_settings->landing1_sub_header1 }}
                                 </span>
                             </div>
                                 
                             <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
                                 <h2 class="ltext-104 cl2 p-t-19 p-b-43 respon1">
-                                    New arrivals
+                                    {{ $w_settings->landing1_header1 }}
                                 </h2>
                             </div>
                                 
@@ -450,18 +456,18 @@
                     </div>
                 </div>
 
-                <div class="item-slick1" style="background-image: url({{ asset('') }}assets/front-end-assets/images/slide-02.jpg);">
+                <div class="item-slick1" style="background-image: url({{ asset('').'core/public/storage/'.$w_settings->landing1_slider2 }});">
                     <div class="container h-full">
                         <div class="flex-col-l-m h-full p-t-100 p-b-30">
                             <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
                                 <span class="ltext-202 cl2 respon2">
-                                    Men New-Season
+                                    {{ $w_settings->landing1_sub_header2 }}
                                 </span>
                             </div>
                                 
                             <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
                                 <h2 class="ltext-104 cl2 p-t-19 p-b-43 respon1">
-                                    Jackets & Coats
+                                    {{ $w_settings->landing1_header2 }}
                                 </h2>
                             </div>
                                 
@@ -474,18 +480,18 @@
                     </div>
                 </div>
 
-                <div class="item-slick1" style="background-image: url({{ asset('') }}assets/front-end-assets/images/slide-04.jpg);">
+                <div class="item-slick1" style="background-image: url({{ asset('').'core/public/storage/'.$w_settings->landing1_slider3 }});">
                     <div class="container h-full">
                         <div class="flex-col-l-m h-full p-t-100 p-b-30">
                             <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
                                 <span class="ltext-202 cl2 respon2">
-                                    Women Collection 2018
+                                    {{ $w_settings->landing1_sub_header3 }}
                                 </span>
                             </div>
                                 
                             <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
                                 <h2 class="ltext-104 cl2 p-t-19 p-b-43 respon1">
-                                    NEW SEASON
+                                    {{ $w_settings->landing1_header3 }}
                                 </h2>
                             </div>
                                 
@@ -508,16 +514,16 @@
             <div class="size-202 m-lr-auto respon4">
                 <!-- Block1 -->
                 <div class="block1 wrap-pic-w">
-                    <img src="{{ asset('') }}assets/front-end-assets/images/banner-04.jpg" alt="IMG-BANNER">
+                    <img src="{{ asset('').'core/public/storage/'.$categories[1]->cat_image }}" alt="IMG-BANNER">
 
                     <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Women
+                               {{ $categories[1]->name }} 
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
+                                Spring 2019
                             </span>
                         </div>
 
@@ -533,16 +539,16 @@
             <div class="size-202 m-lr-auto respon4">
                 <!-- Block1 -->
                 <div class="block1 wrap-pic-w">
-                    <img src="{{ asset('') }}assets/front-end-assets/images/banner-05.jpg" alt="IMG-BANNER">
+                    <img src="{{ asset('').'core/public/storage/'.$categories[0]->cat_image }}" alt="IMG-BANNER">
 
                     <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Men
+                                {{ $categories[0]->name }} 
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
+                                Spring 2019
                             </span>
                         </div>
 
@@ -558,12 +564,12 @@
             <div class="size-202 m-lr-auto respon4">
                 <!-- Block1 -->
                 <div class="block1 wrap-pic-w">
-                    <img src="{{ asset('') }}assets/front-end-assets/images/banner-06.jpg" alt="IMG-BANNER">
+                    <img src="{{ asset('').'core/public/storage/'.$categories[2]->cat_image }}" alt="IMG-BANNER">
 
                     <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Bags
+                                {{ $categories[2]->name }} 
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
@@ -597,11 +603,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item p-b-10">
-                        <a class="nav-link active" data-toggle="tab" href="#best-seller" role="tab">Best Seller</a>
-                    </li>
-
-                    <li class="nav-item p-b-10">
-                        <a class="nav-link" data-toggle="tab" href="#featured" role="tab">Featured</a>
+                        <a class="nav-link active" data-toggle="tab" href="#featured" role="tab">Featured</a>
                     </li>
 
                     <li class="nav-item p-b-10">
@@ -611,12 +613,15 @@
                     <li class="nav-item p-b-10">
                         <a class="nav-link" data-toggle="tab" href="#top-rate" role="tab">Top Rate</a>
                     </li>
+                    <li class="nav-item p-b-10">
+                        <a class="nav-link" data-toggle="tab" href="#best-seller" role="tab">Best Seller</a>
+                    </li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content p-t-50">
                     <!-- - -->
-                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                    <div class="tab-pane fade" id="best-seller" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
@@ -880,15 +885,17 @@
                     </div>
 
                     <!-- - -->
-                    <div class="tab-pane fade" id="featured" role="tabpanel">
+                    <div class="tab-pane fade show active" id="featured" role="tabpanel">
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
+                                @if($featured)
+                                @foreach($featured as $key => $value)
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-09.jpg" alt="IMG-PRODUCT">
+                                            <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
                                             <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
@@ -898,11 +905,11 @@
                                         <div class="block2-txt flex-w flex-t p-t-14">
                                             <div class="block2-txt-child1 flex-col-l ">
                                                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Converse All Star Hi Plimsolls
+                                                    {{ $value->name }}
                                                 </a>
 
                                                 <span class="stext-105 cl3">
-                                                    $75.00
+                                                    ${{ $value->present_price }}
                                                 </span>
                                             </div>
 
@@ -915,230 +922,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-10.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Femme T-Shirt In Stripe
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $25.85
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-11.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply 
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $63.16
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-12.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $63.15
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-13.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    T-Shirt with Sleeve
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $18.49
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-14.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Pretty Little Thing
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $54.79
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-15.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Mini Silver Mesh Watch
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $86.85
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-16.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Square Neck Back
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $29.64
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
+                                
                             </div>
                         </div>
                     </div>
@@ -1148,11 +934,13 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
+                                @if($on_sale)
+                                @foreach($on_sale as $key => $value)
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-02.jpg" alt="IMG-PRODUCT">
+                                            <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
                                             <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
@@ -1162,11 +950,11 @@
                                         <div class="block2-txt flex-w flex-t p-t-14">
                                             <div class="block2-txt-child1 flex-col-l ">
                                                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply
+                                                    {{ $value->name }}
                                                 </a>
 
                                                 <span class="stext-105 cl3">
-                                                    $35.31
+                                                    ${{ $value->present_price }}
                                                 </span>
                                             </div>
 
@@ -1179,198 +967,8 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-04.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Classic Trench Coat
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $75.00
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-06.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Vintage Inspired Classic 
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $93.20
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-09.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Converse All Star Hi Plimsolls
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $75.00
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-11.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply 
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $63.16
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-13.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    T-Shirt with Sleeve
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $18.49
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-15.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Mini Silver Mesh Watch
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $86.85
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -1380,11 +978,13 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
+                                @if($top_rate)
+                                @foreach($top_rate as $key => $value)
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
                                     <div class="block2">
                                         <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-03.jpg" alt="IMG-PRODUCT">
+                                            <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
                                             <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
@@ -1394,11 +994,11 @@
                                         <div class="block2-txt flex-w flex-t p-t-14">
                                             <div class="block2-txt-child1 flex-col-l ">
                                                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Only Check Trouser
+                                                    {{ $value->name }}
                                                 </a>
 
                                                 <span class="stext-105 cl3">
-                                                    $25.50
+                                                    ${{ $value->present_price }}
                                                 </span>
                                             </div>
 
@@ -1411,294 +1011,8 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-06.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Vintage Inspired Classic 
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $93.20
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-07.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Shirt in Stretch Cotton
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $52.66
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-08.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Pieces Metallic Printed
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $18.96
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-09.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Converse All Star Hi Plimsolls
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $75.00
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-10.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Femme T-Shirt In Stripe
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $25.85
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-11.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply 
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $63.16
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-12.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Herschel supply
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $63.15
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-13.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    T-Shirt with Sleeve
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $18.49
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
-                                    <!-- Block2 -->
-                                    <div class="block2">
-                                        <div class="block2-pic hov-img0">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-16.jpg" alt="IMG-PRODUCT">
-
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
-                                        </div>
-
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    Square Neck Back
-                                                </a>
-
-                                                <span class="stext-105 cl3">
-                                                    $29.64
-                                                </span>
-                                            </div>
-
-                                            <div class="block2-txt-child2 flex-r p-t-3">
-                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                                    <img class="icon-heart1 dis-block trans-04" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-01.png" alt="ICON">
-                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('') }}assets/front-end-assets/images/icons/icon-heart-02.png" alt="ICON">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -2160,6 +1474,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var ts = new Date('2020-01-13 12:11:31');
+        var t = ts.toDateString();
+console.log(t.substring(4));
+    </script>
 
 <!--===============================================================================================-->  
     <script src="{{ asset('') }}assets/front-end-assets/vendor/jquery/jquery-3.2.1.min.js"></script>

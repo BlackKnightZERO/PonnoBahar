@@ -111,7 +111,7 @@ Add Product
                    <div class="form-group">
                       <label>Image</label>
                       <div class="input-group">
-                          <input type="file" name="p_image" class="check">
+                          <input type="file" name="p_image" class="check" required="required">
                       </div>
                     </div>
                   </div>

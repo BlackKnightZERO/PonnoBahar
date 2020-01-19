@@ -15,16 +15,17 @@ class AttributeController extends Controller
     public function add(Request $request)
     {
         $validatedData = $request->validate([
-    		'name' => 'required',
     		'category_id_attr' => 'required',
 			'sub_category_id_attr' => 'required',
         ]);
-            $attribute = new Attribute();
-            $attribute->name = $request->name;
-            $attribute->category_id = $request->category_id_attr;
-            $attribute->sub_category_id = $request->sub_category_id_attr;
-            $attribute->save();
-               
+            
+            foreach ($request->name as $key => $value) {
+                $attribute = new Attribute();
+                $attribute->name = $value;
+                $attribute->category_id = $request->category_id_attr;
+                $attribute->sub_category_id = $request->sub_category_id_attr;
+                $attribute->save();
+            }   
 	   		$notification = array(
 			    'message' => 'Successful !',
 			    'alert-type' => 'success',

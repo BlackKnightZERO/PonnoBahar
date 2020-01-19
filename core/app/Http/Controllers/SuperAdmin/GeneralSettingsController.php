@@ -16,7 +16,7 @@ class GeneralSettingsController extends Controller
     	$categories = Category::all();
         $g_settings = GeneralSetting::find(1);
         // return $g_settings;
-    	return view('back-end.super-admin.generalSettingsLogo',['categories' => $categories, 'g_settings' => $g_settings ]);
+    	return view('back-end.super-admin.general_settings',['categories' => $categories, 'g_settings' => $g_settings ]);
     }
 
     public function updateLogoTitle(Request $request)
@@ -51,6 +51,38 @@ class GeneralSettingsController extends Controller
        
        public function updateContactSettings(Request $request)
        {
+       		$validatedData = $request->validate([
+    		'email' => 'required',
+			'location' => 'required',
+			'phone_1' => 'required',
+			// 'phone_2' => 'required',
+			// 'facebook' => 'required',
+			// 'instagram' => 'required',
+			// 'pinterest' => 'required',
+    	]);
+       		$g_settings = GeneralSetting::find(1);
+	   		$g_settings->email = $request->email;
+	   		$g_settings->location = $request->location;
+	   		$g_settings->phone_1 = $request->phone_1;
+	   		if( $request->phone_2 ){
+	   			$g_settings->phone_2 = $request->phone_2;
+	   		}
+	   		if( $request->facebook ){
+	   			$g_settings->facebook = $request->facebook;
+	   		}
+	   		if( $request->instagram ){
+	   			$g_settings->instagram = $request->instagram;
+	   		}
+	   		if( $request->pinterest ){
+	   			$g_settings->pinterest = $request->pinterest;
+	   		}
+	   		$g_settings->save();
+
+	   		$notification = array(
+			    'message' => 'Successful !',
+			    'alert-type' => 'success',
+			);
+			return back()->with($notification);
 
        }
 }

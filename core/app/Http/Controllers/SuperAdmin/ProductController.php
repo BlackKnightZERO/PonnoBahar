@@ -35,12 +35,12 @@ class ProductController extends Controller
     		'sub_category_id' => 'required',
 			'p_image' => 'sometimes|file|image|mimes:jpeg,png,jpg,gif|max:5000',
         ]);
-
+        // $img_path = "";
     	if($request->hasFile('p_image'))
     	{ 
     		$img_path = $this->storeImage($request);
-    	}	
-    		$product = new Product();
+            
+            $product = new Product();
             $product->name = $request->name;
             $product->in_stock = $request->in_stock;
             $product->present_price = $request->present_price;
@@ -67,9 +67,6 @@ class ProductController extends Controller
            }
 
            if ( $request->checkboxarr ){
-            // $request->merge([ 
-            // 'attributes' => implode(',', (array) $request->get('checkboxarr'))
-            //  ]);
             $var = implode(",",$request->checkboxarr);
             $product->attributes = $var;
           }
@@ -77,11 +74,21 @@ class ProductController extends Controller
             $product->p_image = $img_path;   
             $product->save();
                
-	   		$notification = array(
-			    'message' => 'Successful !',
-			    'alert-type' => 'success',
-			);
-			return back()->with($notification);
+            $notification = array(
+                'message' => 'Successful !',
+                'alert-type' => 'success',
+            );
+            return back()->with($notification);
+    	}
+        else
+        {
+            $notification = array(
+                'message' => 'Image Required',
+                'alert-type' => 'error',
+            );
+            return back()->with($notification);
+        }	
+
     }
    	public function storeImage($request)
    	{

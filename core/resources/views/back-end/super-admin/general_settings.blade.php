@@ -92,13 +92,13 @@ General Settings Logo & Title
                 <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleEmail">Phone 1</label>
-                    <input type="text" class="form-control" name="phone1" value="{{ $g_settings->phone1 }}">
+                    <input type="text" class="form-control" name="phone_1" value="{{ $g_settings->phone_1 }}">
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleEmail">Phone 2</label>
-                    <input type="text" class="form-control" name="phone2" value="{{ $g_settings->phone2 }}">
+                    <input type="text" class="form-control" name="phone_2" value="{{ $g_settings->phone_2 }}">
                 </div>
                 </div>
             </div>
@@ -130,13 +130,13 @@ General Settings Logo & Title
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleEmail">Footer Header 1</label>
-                            <input type="text" class="form-control" name="footer_header1">
+                            <input type="text" class="form-control" name="footer_header_1">
                         </div>
                         </div>
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleEmail">Footer Header 2</label>
-                            <input type="text" class="form-control" name="footer_header2">
+                            <input type="text" class="form-control" name="footer_header_2">
                         </div>
                         </div>
                     </div>
@@ -144,13 +144,13 @@ General Settings Logo & Title
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleEmail">Footer Text 1</label>
-                            <input type="text" class="form-control" name="footer_text1">
+                            <input type="text" class="form-control" name="footer_text_1">
                         </div>
                         </div>
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleEmail">Footer Text 2</label>
-                            <input type="text" class="form-control" name="footer_text2">
+                            <input type="text" class="form-control" name="footer_text_2">
                         </div>
                         </div>
                     </div> -->

@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index')->name('land');
 Auth::routes();
 //logout
 Route::get('/logoutt', function(){
@@ -106,6 +104,31 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
         'uses' => 'SuperAdmin\WebsiteSettingsController@landingIteams3',
         'as'   => 'showlandingIteamsForm3'
         ]);
+        //Footer-items 
+    Route::get('/footer-items', [
+        'uses' => 'SuperAdmin\WebsiteSettingsController@footerItems',
+        'as'   => 'footerIteamsForm'
+        ]);
+        //Footer-Update 
+    Route::post('/update-footer', [
+        'uses' => 'SuperAdmin\WebsiteSettingsController@updateFooter',
+        'as'   => 'updateFooter'
+        ]);
+    //About-Us
+    Route::get('/about-us', [
+        'uses' => 'SuperAdmin\WebsiteSettingsController@showAboutUs',
+        'as'   => 'showAboutUs'
+        ]);
+        //Footer-Update 
+    Route::post('/update-about-us', [
+        'uses' => 'SuperAdmin\WebsiteSettingsController@updateAboutUs',
+        'as'   => 'updateAboutUs'
+        ]);
+        //Slider-Update 
+    Route::post('/update-slider', [
+        'uses' => 'SuperAdmin\WebsiteSettingsController@updateSlider',
+        'as'   => 'updateLandingSlider'
+        ]);
     ///
     // BLOG SETTINGS
     ///
@@ -114,8 +137,6 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
         'uses' => 'SuperAdmin\BlogController@index',
         'as'   => 'showBlog'
         ]);
-
-
 });
 
 
