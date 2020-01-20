@@ -20,11 +20,11 @@ class CreateBlogsTable extends Migration
             $table->text('description')->nullable();
             $table->string('author')->nullable();
             $table->Integer('author_id')->nullable();
-            $table->string('image')->nullable();
+            $table->string('b_image')->nullable();
 
             $table->Integer('likes')->nullable();
             $table->Integer('views')->nullable();
-
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

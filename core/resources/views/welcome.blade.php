@@ -1031,12 +1031,15 @@
                 </h3>
             </div>
 
+
             <div class="row">
+                @if($blogs)
+                @foreach($blogs as $key => $value)
                 <div class="col-sm-6 col-md-4 p-b-40">
                     <div class="blog-item">
                         <div class="hov-img0">
-                            <a href="blog-detail.html">
-                                <img src="{{ asset('') }}assets/front-end-assets/images/blog-01.jpg" alt="IMG-BLOG">
+                            <a href="#">
+                                <img src="{{ asset('').'core/public/storage/'.$value->b_image }}" alt="IMG-BLOG">
                             </a>
                         </div>
 
@@ -1048,7 +1051,7 @@
                                     </span>
 
                                     <span class="cl5">
-                                        Nancy Ward
+                                        {{ $value->author }}
                                     </span>
                                 </span>
 
@@ -1058,111 +1061,25 @@
                                     </span>
 
                                     <span class="cl5">
-                                        July 22, 2017 
+                                        {{ date("M d, Y", strtotime($value->updated_at)) }}
                                     </span>
                                 </span>
                             </div>
 
                             <h4 class="p-b-12">
                                 <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    8 Inspiring Ways to Wear Dresses in the Winter
+                                    {{ $value->title }}
                                 </a>
                             </h4>
 
                             <p class="stext-108 cl6">
-                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque mattis augue id euismod. Interdum et male-suada fames
+                                {!! $value->description !!}
                             </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-4 p-b-40">
-                    <div class="blog-item">
-                        <div class="hov-img0">
-                            <a href="blog-detail.html">
-                                <img src="{{ asset('') }}assets/front-end-assets/images/blog-02.jpg" alt="IMG-BLOG">
-                            </a>
-                        </div>
-
-                        <div class="p-t-15">
-                            <div class="stext-107 flex-w p-b-14">
-                                <span class="m-r-3">
-                                    <span class="cl4">
-                                        By
-                                    </span>
-
-                                    <span class="cl5">
-                                        Nancy Ward
-                                    </span>
-                                </span>
-
-                                <span>
-                                    <span class="cl4">
-                                        on
-                                    </span>
-
-                                    <span class="cl5">
-                                        July 18, 2017
-                                    </span>
-                                </span>
-                            </div>
-
-                            <h4 class="p-b-12">
-                                <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    The Great Big List of Men’s Gifts for the Holidays
-                                </a>
-                            </h4>
-
-                            <p class="stext-108 cl6">
-                                Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 p-b-40">
-                    <div class="blog-item">
-                        <div class="hov-img0">
-                            <a href="blog-detail.html">
-                                <img src="{{ asset('') }}assets/front-end-assets/images/blog-03.jpg" alt="IMG-BLOG">
-                            </a>
-                        </div>
-
-                        <div class="p-t-15">
-                            <div class="stext-107 flex-w p-b-14">
-                                <span class="m-r-3">
-                                    <span class="cl4">
-                                        By
-                                    </span>
-
-                                    <span class="cl5">
-                                        Nancy Ward
-                                    </span>
-                                </span>
-
-                                <span>
-                                    <span class="cl4">
-                                        on
-                                    </span>
-
-                                    <span class="cl5">
-                                        July 2, 2017 
-                                    </span>
-                                </span>
-                            </div>
-
-                            <h4 class="p-b-12">
-                                <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    5 Winter-to-Spring Fashion Trends to Try Now
-                                </a>
-                            </h4>
-
-                            <p class="stext-108 cl6">
-                                Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -1476,9 +1393,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
 
     <script type="text/javascript">
-        var ts = new Date('2020-01-13 12:11:31');
+        
+        var ts = new Date('2020-01-01');
         var t = ts.toDateString();
-console.log(t.substring(4));
+        console.log(t.substring(4));
+        
     </script>
 
 <!--===============================================================================================-->  

@@ -136,7 +136,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('super.admin.showBlog') }}" class="nav-link">
+                <a href="{{ route('super.admin.updateBlog') }}" class="nav-link">
                   <i class="fas fa-arrow-circle-right nav-icon"></i>
                   <p>Edit Blogs</p>
                 </a>

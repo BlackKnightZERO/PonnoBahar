@@ -132,10 +132,20 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
     ///
     // BLOG SETTINGS
     ///
-    //landing-items-1  
-    Route::get('/blogs', [
-        'uses' => 'SuperAdmin\BlogController@index',
+    //show-add-blog
+    Route::get('/blog-form', [
+        'uses' => 'SuperAdmin\BlogController@addBlogForm',
         'as'   => 'showBlog'
+        ]);
+        //add-blog
+    Route::post('/add-blog', [
+        'uses' => 'SuperAdmin\BlogController@add',
+        'as'   => 'addBlog'
+        ]);
+    //show-add-blog
+    Route::post('/all-blogs', [
+        'uses' => 'SuperAdmin\BlogController@update',
+        'as'   => 'updateBlog'
         ]);
 });
 
