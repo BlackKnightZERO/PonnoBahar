@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2020 at 10:09 AM
+-- Generation Time: Jan 20, 2020 at 02:30 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -78,12 +78,22 @@ CREATE TABLE `blogs` (
   `description` text COLLATE utf8mb4_unicode_ci,
   `author` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `author_id` int(11) DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `b_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `likes` int(11) DEFAULT NULL,
   `views` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `description`, `author`, `author_id`, `b_image`, `likes`, `views`, `status`, `created_at`, `updated_at`) VALUES
+(1, '8 Inspiring Ways to Wear Dresses in the Winter', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Nancy Ward', NULL, 'blog_image//jdxPUHw22JXfLv7Rs7ui2VszIZtpfZeMOadePa9f.jpeg', NULL, NULL, 1, '2020-01-20 06:12:35', '2020-01-20 06:12:35'),
+(2, 'The Great Big List of Men’s Gifts for the Holidays', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Sumitra Sheikh', NULL, 'blog_image//eWWFPItAoWc6IK9gR7WocTQloVl3toQYn37Wk0xA.jpeg', NULL, NULL, 1, '2020-01-20 06:14:53', '2020-01-20 06:14:53'),
+(3, '5 Winter-to-Spring Fashion Trends to Try Now', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Arif Faysal', NULL, 'blog_image//z4szpnzpTJSRSS2FDNKjR3AH3shndov9Lj6oSC65.jpeg', NULL, NULL, 1, '2020-01-20 06:19:54', '2020-01-20 06:19:54');
 
 -- --------------------------------------------------------
 
@@ -488,7 +498,7 @@ ALTER TABLE `attributes`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
