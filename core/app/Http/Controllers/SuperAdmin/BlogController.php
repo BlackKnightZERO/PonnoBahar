@@ -18,7 +18,7 @@ class BlogController extends Controller
     {
     	$categories = Category::all();
         $g_settings = GeneralSetting::find(1);
-        return view('back-end.super-admin.blog', [ 'categories' => $categories , 'g_settings' => $g_settings, ]);
+        return view('back-end.super-admin.add_blog', [ 'categories' => $categories , 'g_settings' => $g_settings, ]);
     
     }
     public function add(Request $request)
@@ -62,5 +62,19 @@ class BlogController extends Controller
         $img->save();
         return $path;	
        
+    }
+
+    public function allTable()
+    {
+        $categories = Category::all();
+        $g_settings = GeneralSetting::find(1);
+        $blogs = Blog::where('status',1)->orderBy('id', 'DESC')->get();
+        return view('back-end.super-admin.blogs', [ 'categories' => $categories , 'g_settings' => $g_settings, 'blogs' => $blogs ]);
+    }
+
+    public function getBlog($id)
+    {
+        $blog = Blog::where('status',1)->find($id);
+        return $blog;
     }
 }

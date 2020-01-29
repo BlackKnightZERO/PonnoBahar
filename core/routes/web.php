@@ -135,7 +135,7 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
     //show-add-blog
     Route::get('/blog-form', [
         'uses' => 'SuperAdmin\BlogController@addBlogForm',
-        'as'   => 'showBlog'
+        'as'   => 'addBlogForm'
         ]);
         //add-blog
     Route::post('/add-blog', [
@@ -143,9 +143,14 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
         'as'   => 'addBlog'
         ]);
     //show-add-blog
-    Route::post('/all-blogs', [
-        'uses' => 'SuperAdmin\BlogController@update',
-        'as'   => 'updateBlog'
+    Route::get('/all-blogs', [
+        'uses' => 'SuperAdmin\BlogController@allTable',
+        'as'   => 'editBlog'
+        ]);
+        //get-atts    
+    Route::get('/getBlog/{id}', [
+        'uses' => 'SuperAdmin\BlogController@getBlog',
+        'as'   => 'getBlog'
         ]);
 });
 
