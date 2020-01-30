@@ -11,6 +11,8 @@ Screens :
 ![land1](https://user-images.githubusercontent.com/29349064/72678164-71318980-3acd-11ea-9efe-9f15f7c720de.jpg)
 ![attribute](https://user-images.githubusercontent.com/29349064/72814100-b0f39f00-3c8e-11ea-8308-00a99bba90e5.jpg)
 ![attributes](https://user-images.githubusercontent.com/29349064/72813688-fc597d80-3c8d-11ea-8314-b041cdb71916.jpg)
+![blogtable](https://user-images.githubusercontent.com/29349064/73456680-82677980-439c-11ea-91ab-0232d6958931.jpg)
+
 
 
 
