@@ -10,6 +10,7 @@ use App\GeneralSetting;
 use App\WebsiteSetting;
 use App\Blog;
 use Image;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -60,8 +61,7 @@ class BlogController extends Controller
         $path = $request->file('b_image')->store('blog_image/','public');
    		$img = Image::make(public_path('storage/'.$path))->fit(1200,600);
         $img->save();
-        return $path;	
-       
+        return $path;
     }
 
     public function allTable()
@@ -76,5 +76,70 @@ class BlogController extends Controller
     {
         $blog = Blog::where('status',1)->find($id);
         return $blog;
+    }
+
+    public function updateBlog(Request $request)
+    {
+        // return $request;
+                $validatedData = $request->validate([
+                    'id' => 'required',
+                    'old_img' => 'required',
+                    'author' => 'required',
+                    'title' => 'required',
+                    'description' => 'required',
+                    'b_image' => 'sometimes|file|image|mimes:jpeg,png,jpg,gif|max:4000',
+                ]);
+                if($request->hasFile('b_image'))
+                { 
+                    $img_path = $this->updateImage($request);
+                    
+                    $blog = Blog::find($request->id);
+                    $blog->author = $request->author;
+                    $blog->title = $request->title;
+                    $blog->description = $request->description;
+                    $blog->b_image = $img_path;   
+                    $blog->save();
+                       
+                    $notification = array(
+                        'message' => 'Successful !',
+                        'alert-type' => 'success',
+                    );
+                    return back()->with($notification);
+                }
+                else
+                {
+                    $blog = Blog::find($request->id);
+                    $blog->author = $request->author;
+                    $blog->title = $request->title;
+                    $blog->description = $request->description;
+                    // $blog->b_image = $img_path;   
+                    $blog->save();
+                       
+                    $notification = array(
+                        'message' => 'Successful !',
+                        'alert-type' => 'success',
+                    );
+                    return back()->with($notification);
+                }   
+    }
+    public function updateImage($request)
+    {
+        $path = $request->file('b_image')->store('blog_image/','public');
+        $img = Image::make(public_path('storage/'.$path))->fit(1200,600);
+        Storage::disk('public')->delete($request->old_img);
+        $img->save();
+        return $path;
+    }
+
+    public function deleteBlog($id)
+    {
+        $blog = Blog::find($id);
+        $blog->status = 0;
+        $blog->save();
+         $notification = array(
+            'message' => 'Successful !',
+            'alert-type' => 'success',
+        );
+        return back()->with($notification);
     }
 }

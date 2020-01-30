@@ -147,10 +147,20 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
         'uses' => 'SuperAdmin\BlogController@allTable',
         'as'   => 'editBlog'
         ]);
-        //get-atts    
+        //get-blog-ajax    
     Route::get('/getBlog/{id}', [
         'uses' => 'SuperAdmin\BlogController@getBlog',
         'as'   => 'getBlog'
+        ]); 
+        //update-blog    
+    Route::post('/update-blog', [
+        'uses' => 'SuperAdmin\BlogController@updateBlog',
+        'as'   => 'updateBlog'
+        ]);
+        //update-blog    
+    Route::get('/delete-blog/{id}', [
+        'uses' => 'SuperAdmin\BlogController@deleteBlog',
+        'as'   => 'deleteBlog'
         ]);
 });
 

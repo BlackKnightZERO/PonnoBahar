@@ -6,7 +6,8 @@ All Blogs
   @section('extraHeader')
   <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('') }}assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-    <script src="{{ asset('') }}assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('') }}assets/plugins/summernote/summernote-bs4.css">
+    
   @endsection
 
 @section('page-content')
@@ -65,7 +66,7 @@ All Blogs
                    <td>
                     <button class="btn btn-sm btn-light mod_id" value="{{ $value->id }}" data-toggle="modal" data-target="#modal-xl"><i class="fas fa-edit" style="color:#5E7CDC;"></i></button>
                     |
-                    <button class="btn btn-sm btn-light"><i class="fas fa-trash-alt" style="color: #DC6F3C;"></i></button>
+                    <a href="{!! route('super.admin.deleteBlog', ['id' => $value->id ]) !!}" class="btn btn-sm btn-light" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt" style="color: #DC6F3C;"></i></a>
                   </td>
                   </tr>
                   @endforeach
@@ -91,7 +92,7 @@ All Blogs
 <!-- END ALERTS AND CALLOUTS -->
 </div>
 <!-- modal -->
-<form action="{{ route('super.admin.addBlog') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('super.admin.updateBlog') }}" method="post" enctype="multipart/form-data">
             @csrf
     <div class="modal fade" id="modal-xl">
         <div class="modal-dialog modal-xl">
@@ -109,6 +110,8 @@ All Blogs
                     <div class="col-md-3">
                         <label for="exampleEmail"><i>Author</i></label>
                         <input type="text" id="author" name="author" class="form-control">
+                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="old_img" id="old_img">
                     </div>
                     <div class="col-md-7">
                         <label for="exampleEmail"><i>Title</i></label>
@@ -125,6 +128,7 @@ All Blogs
                     <label for="exampleEmail"><i>Description</i></label>
                     <textarea class="textarea" name="description" 
                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" id="description"></textarea>     
+                    <!-- <textarea id="description2"></textarea> -->
                     <label for="exampleEmail">Image</label>
 
                     <div id="loadImg" style="text-align: center; background: #23293E;"></div>               
@@ -133,7 +137,7 @@ All Blogs
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-success">Update</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -161,11 +165,14 @@ All Blogs
   });
 $(document).ready(function() {
   $( ".mod_id").click(function() {
-  console.log(this.value);
+  // console.log(this.value);
   $("#author").val("");
   $("#title").val("");
+  $("#id").val("");
   $('#loadImg').empty();
-  // $("#description").val("");
+  $("#description").html("");
+  // console.log($("#description"));
+
             var id = this.value;
             $.ajax({
                 type :'GET',
@@ -174,11 +181,16 @@ $(document).ready(function() {
                 data :{},
                 success:function(data) {
                    // console.log(data.description);
-                   var html = $.parseHTML( data.description );
-                   console.log(html[0].innerText);
+                   // var html = $.parseHTML( data.description );
+                   // console.log(html[0].innerText);
+                   console.log($('#description').val());
                     $("#author").val(data.author);
                     $("#title").val(data.title);
-                    $("#description").val(html[0].innerText);
+                    $("#id").val(id);
+                    $("#old_img").val(data.b_image);
+                     // $("#description").html(data.description);
+                     $('#description').summernote ('code', data.description);
+                    // $("#description2").html(html[0].innerText);
                     var img = data.b_image;
                     $('#loadImg').prepend($('<img>',{id:'theImg',src:`{{ asset('').'core/public/storage/' }}${img}`, class:"img-fluid",  height:300, width:590, }));
                  },
@@ -191,6 +203,7 @@ $(document).ready(function() {
   });
 });
 </script>
+<script src="{{ asset('') }}assets/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
   $(function () {
     // Summernote
