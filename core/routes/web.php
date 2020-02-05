@@ -1,6 +1,27 @@
 <?php
-
-Route::get('/', 'WelcomeController@index')->name('land');
+///LANDING ROUTES
+    //welcome
+    Route::get('/', 'WelcomeController@index')->name('land');
+    //get-product-AJAX
+    Route::get('/getProduct/{id}', [
+        'uses' => 'SuperAdmin\ProductController@getProduct',
+        'as'   => 'getProduct'
+        ]); 
+    //cart-add
+    Route::post('/addToCart', [
+        'uses' => 'CartController@addToCart',
+        'as'   => 'addToCart'
+        ]); 
+    //cart-all
+    Route::get('/viewCart', [
+        'uses' => 'CartController@viewCart',
+        'as'   => 'viewCart'
+        ]);
+        //clear-cart 
+    Route::get('/clearCart', [
+        'uses' => 'CartController@clearCart',
+        'as'   => 'clearCart'
+        ]); 
 Auth::routes();
 //logout
 Route::get('/logoutt', function(){

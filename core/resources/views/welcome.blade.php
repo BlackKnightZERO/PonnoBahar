@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home 02</title>
+    <title>{{ config('global.app_name') }}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -92,10 +92,11 @@
                         </div>
                             
                         <div class="flex-c-m h-full p-l-18 p-r-25 bor5">
-                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="{{ $cart_badge }}">
                                 <i class="zmdi zmdi-shopping-cart"></i>
                             </div>
                         </div>
+                        <!-- <a href="{{ route('viewCart') }}">carTT</a> -->
                             
                         <div class="flex-c-m h-full p-lr-19">
                             <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
@@ -239,7 +240,6 @@
                     @endif
                     @endauth
                     @endif
-
                     <li class="p-b-13">
                         <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
                             Track Oder
@@ -274,55 +274,6 @@
                         </div>
                         @endforeach
                         @endif
-                        
-
-                        <!-- item gallery sidebar -->
-                       <!--  <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-02.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-02.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-03.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-03.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-04.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-04.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-05.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-05.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-06.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-06.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-07.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-07.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-08.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-08.jpg');"></a>
-                        </div> -->
-
-                        <!-- item gallery sidebar -->
-                        <!-- <div class="wrap-item-gallery m-b-10">
-                            <a class="item-gallery bg-img1" href="{{ asset('') }}assets/front-end-assets/images/gallery-09.jpg" data-lightbox="gallery" 
-                            style="background-image: url('images/gallery-09.jpg');"></a>
-                        </div> -->
                     </div>
                 </div>
 
@@ -358,59 +309,33 @@
             
             <div class="header-cart-content flex-w js-pscroll">
                 <ul class="header-cart-wrapitem w-full">
+                    @if($cart_items)
+                    @foreach($cart_items as $row)
                     <li class="header-cart-item flex-w flex-t m-b-12">
                         <div class="header-cart-item-img">
-                            <img src="{{ asset('') }}assets/front-end-assets/images/item-cart-01.jpg" alt="IMG">
+                            <img src="{{ asset('').'core/public/storage/'.$row->associatedModel->p_image }}" alt="IMG">
                         </div>
-
                         <div class="header-cart-item-txt p-t-8">
                             <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                White Shirt Pleat
+                                {{ $row->name }} 
                             </a>
-
                             <span class="header-cart-item-info">
-                                1 x $19.00
+                                {{ $row->quantity }} x ${{ $row->price }}
                             </span>
                         </div>
                     </li>
-
-                    <li class="header-cart-item flex-w flex-t m-b-12">
-                        <div class="header-cart-item-img">
-                            <img src="{{ asset('') }}assets/front-end-assets/images/item-cart-02.jpg" alt="IMG">
-                        </div>
-
-                        <div class="header-cart-item-txt p-t-8">
-                            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                Converse All Star
-                            </a>
-
-                            <span class="header-cart-item-info">
-                                1 x $39.00
-                            </span>
-                        </div>
-                    </li>
-
-                    <li class="header-cart-item flex-w flex-t m-b-12">
-                        <div class="header-cart-item-img">
-                            <img src="{{ asset('') }}assets/front-end-assets/images/item-cart-03.jpg" alt="IMG">
-                        </div>
-
-                        <div class="header-cart-item-txt p-t-8">
-                            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                Nixon Porter Leather
-                            </a>
-
-                            <span class="header-cart-item-info">
-                                1 x $17.00
-                            </span>
-                        </div>
-                    </li>
+                    @endforeach
+                    @endif
                 </ul>
                 
                 <div class="w-full">
                     <div class="header-cart-total w-full p-tb-40">
-                        Total: $75.00
+                        Total: ${{ $total}}
+                        <div class="float-right">
+                        <a href="{{ route('clearCart') }}" class="flex-c-m stext-101 cl0 size-140 bg1 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">Clear All</a>
                     </div>
+                    </div>
+                    
 
                     <div class="header-cart-buttons flex-w w-full">
                         <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
@@ -897,9 +822,10 @@
                                         <div class="block2-pic hov-img0">
                                             <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            <!-- <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
-                                            </a>
+                                            </a> -->
+                                            <button type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 mod_id" value="{{ $value->id }}">Quick View</button>
                                         </div>
 
                                         <div class="block2-txt flex-w flex-t p-t-14">
@@ -942,9 +868,7 @@
                                         <div class="block2-pic hov-img0">
                                             <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
+                                            <button type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 mod_id" value="{{ $value->id }}">Quick View</button>
                                         </div>
 
                                         <div class="block2-txt flex-w flex-t p-t-14">
@@ -986,9 +910,7 @@
                                         <div class="block2-pic hov-img0">
                                             <img src="{{ asset('').'core/public/storage/'.$value->p_image }}" alt="IMG-PRODUCT">
 
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View
-                                            </a>
+                                            <button type="button" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1 mod_id" value="{{ $value->id }}">Quick View</button>
                                         </div>
 
                                         <div class="block2-txt flex-w flex-t p-t-14">
@@ -1095,29 +1017,15 @@
                     </h4>
 
                     <ul>
+                        @if($categories)
+                        @foreach($categories as $value)
                         <li class="p-b-10">
                             <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Women
+                                {{ $value->name }}
                             </a>
                         </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Men
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Shoes
-                            </a>
-                        </li>
-
-                        <li class="p-b-10">
-                            <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                                Watches
-                            </a>
-                        </li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
 
@@ -1155,23 +1063,23 @@
 
                 <div class="col-sm-6 col-lg-3 p-b-50">
                     <h4 class="stext-301 cl0 p-b-30">
-                        GET IN TOUCH
+                        {{ $w_settings->footer_header_1 }}
                     </h4>
 
                     <p class="stext-107 cl7 size-201">
-                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                        {{ $w_settings->footer_text_1 }}
                     </p>
 
                     <div class="p-t-27">
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="{{ $g_settings->facebook }}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16" target="_blank">
                             <i class="fa fa-facebook"></i>
                         </a>
 
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="{{ $g_settings->instagram }}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16" target="_blank">
                             <i class="fa fa-instagram"></i>
                         </a>
 
-                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <a href="{{ $g_settings->pinterest }}" class="fs-18 cl7 hov-cl1 trans-04 m-r-16" target="_blank">
                             <i class="fa fa-pinterest-p"></i>
                         </a>
                     </div>
@@ -1239,6 +1147,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
 
     <!-- Modal1 -->
+    <form method="post" action="{{ route('addToCart') }}">
+        @csrf
     <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
         <div class="overlay-modal1 js-hide-modal1"></div>
 
@@ -1252,39 +1162,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <div class="col-md-6 col-lg-7 p-b-30">
                         <div class="p-l-25 p-r-30 p-lr-0-lg">
                             <div class="wrap-slick3 flex-sb flex-w">
-                                <div class="wrap-slick3-dots"></div>
-                                <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+                                <!-- <div class="wrap-slick3-dots"></div> -->
+                                <!-- <div class="wrap-slick3-arrows flex-sb-m flex-w"></div> -->
 
                                 <div class="slick3 gallery-lb">
-                                    <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
-                                        <div class="wrap-pic-w pos-relative">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-detail-01.jpg" alt="IMG-PRODUCT">
-
-                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
-                                                <i class="fa fa-expand"></i>
-                                            </a>
-                                        </div>
+                                    <div class="left-part">
+                                        
                                     </div>
 
-                                    <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
-                                        <div class="wrap-pic-w pos-relative">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-detail-02.jpg" alt="IMG-PRODUCT">
-
-                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-                                                <i class="fa fa-expand"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
-                                        <div class="wrap-pic-w pos-relative">
-                                            <img src="{{ asset('') }}assets/front-end-assets/images/product-detail-03.jpg" alt="IMG-PRODUCT">
-
-                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-                                                <i class="fa fa-expand"></i>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1292,27 +1177,31 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     
                     <div class="col-md-6 col-lg-5 p-b-30">
                         <div class="p-r-50 p-t-5 p-lr-0-lg">
-                            <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                                Lightweight Jacket
-                            </h4>
+                            <div class="p-basic">
+                                <h4 class="mtext-105 cl2 js-name-detail p-b-14 p-title">
+                                    
+                                </h4>
 
-                            <span class="mtext-106 cl2">
-                                $58.79
-                            </span>
+                                <span class="mtext-106 cl2 p-price">
+                                    
+                                </span>
 
-                            <p class="stext-102 cl3 p-t-23">
-                                Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
-                            </p>
-                            
+                                <div class="stext-102 cl3 p-t-23 p-desc">
+                                    
+                                </div>
+                            </div>
                             <!--  -->
                             <div class="p-t-33">
                                 <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-203 flex-c-m respon6">
-                                        Size
+                                        Attributes
                                     </div>
 
                                     <div class="size-204 respon6-next">
-                                        <div class="rs1-select2 bor8 bg0">
+                                        <div class="p-atts">
+                                            
+                                        </div>
+                                        <!-- <div class="rs1-select2 bor8 bg0">
                                             <select class="js-select2" name="time">
                                                 <option>Choose an option</option>
                                                 <option>Size S</option>
@@ -1321,11 +1210,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                                 <option>Size XL</option>
                                             </select>
                                             <div class="dropDownSelect2"></div>
-                                        </div>
+                                        </div> -->
+                                        <div class=""></div>
                                     </div>
                                 </div>
 
-                                <div class="flex-w flex-r-m p-b-10">
+                                <!-- <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-203 flex-c-m respon6">
                                         Color
                                     </div>
@@ -1342,7 +1232,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div -->
 
                                 <div class="flex-w flex-r-m p-b-10">
                                     <div class="size-204 flex-w flex-m respon6-next">
@@ -1350,15 +1240,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                             <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                                 <i class="fs-16 zmdi zmdi-minus"></i>
                                             </div>
-
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+                                            <div class="p_id"></div>
+                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="numProduct" value="1">
 
                                             <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                 <i class="fs-16 zmdi zmdi-plus"></i>
                                             </div>
                                         </div>
 
-                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" type="submit">
                                             Add to cart
                                         </button>
                                     </div>
@@ -1391,6 +1281,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div>
         </div>
     </div>
+    </form>
 
     <script type="text/javascript">
         
@@ -1402,6 +1293,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!--===============================================================================================-->  
     <script src="{{ asset('') }}assets/front-end-assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!-- <script src="{{ asset('') }}assets/plugins/jquery/jquery.min.js"></script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.5.5-beta/scripts/jquery.ajaxy.js"></script> -->
 <!--===============================================================================================-->
     <script src="{{ asset('') }}assets/front-end-assets/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -1446,6 +1340,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{ asset('') }}assets/front-end-assets/vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
     <script src="{{ asset('') }}assets/front-end-assets/vendor/sweetalert/sweetalert.min.js"></script>
+
     <script>
         $('.js-addwish-b2').on('click', function(e){
             e.preventDefault();
@@ -1461,10 +1356,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             });
         });
 
-        $('.js-addwish-detail').each(function(){
+        $('.js-addwish-detail').each(function(e){
+            // e.preventDefault();
             var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
 
-            $(this).on('click', function(){
+            $(this).on('click', function(e){
+                e.preventDefault();
                 swal(nameProduct, "is added to wishlist !", "success");
 
                 $(this).addClass('js-addedwish-detail');
@@ -1477,9 +1374,55 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         $('.js-addcart-detail').each(function(){
             var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
             $(this).on('click', function(){
-                swal(nameProduct, "is added to cart !", "success");
+                //swal(nameProduct, "is added to cart !", "success");
             });
         });
+
+        $(document).ready(function() {
+            $( ".mod_id").click(function() {
+                $(".p-price").text("");
+                $(".p-title").text("");
+                $(".p-desc").text("");
+                $('.left-part').empty();
+                $(".p-atts").empty();
+                $('.p_id').empty();
+                console.log($("#description"));
+
+                          var id = this.value;
+                          $.ajax({
+                              type :'GET',
+                              url :'getProduct/'+id,
+                              dataType :"json",
+                              data :{},
+                              success:function(data) {
+                                console.log(data);
+                                 $(".p-price").text("Price: $"+data.present_price);
+                                 $(".p-title").text(data.description_title);
+                                 $(".p-desc").append(data.description_details);
+
+                                  var img = data.p_image;
+                                  $(".left-part").append(
+                                      `<div class="wrap-pic-w pos-relative">
+                                                <img src="{{ asset('').'core/public/storage/' }}${data.p_image}" alt="IMG-PRODUCT">
+
+                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{ asset('').'core/public/storage/' }}${data.p_image}">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                            </div>`
+                                    );
+                                 $('.p_id').append(
+                                    `<input type="hidden" name="productID" value="${data.id}">`
+                                    );
+                               },
+                                error: function()
+                               {
+                                  //  alert('error...');
+                                  //  console.log(v.id);
+                               }
+                          });
+            });
+        });    
+
     </script>
 <!--===============================================================================================-->
     <script src="{{ asset('') }}assets/front-end-assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>

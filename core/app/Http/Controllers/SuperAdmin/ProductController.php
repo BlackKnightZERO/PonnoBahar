@@ -98,4 +98,10 @@ class ProductController extends Controller
         return $path;	
        
     }
+
+    public function getProduct($id)
+    {
+        $product = Product::find($id);
+        return $product;
+    }
 }
