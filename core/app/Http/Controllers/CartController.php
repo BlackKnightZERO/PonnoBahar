@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GeneralSetting;
+use App\WebsiteSetting;
 use App\Category;
 use App\SubCategory;
 use App\Attribute;
@@ -46,6 +48,54 @@ class CartController extends Controller
     public function clearCart()
     {
     	Cart::session(100)->clear();
+    	return back();
+    }
+
+    public function allInCart()
+    {
+    	$cart_badge = Cart::session(100)->getContent()->count();
+        $cart_items = Cart::session(100)->getContent();
+        $sub_total = Cart::session(100)->getSubTotal();
+        $total = Cart::session(100)->getTotal();
+        $g_settings = GeneralSetting::find(1);
+    	$w_settings = WebsiteSetting::find(1);
+    	$categories = Category::all();
+    	return view('shoppingcart',['g_settings' => $g_settings, 
+    								'w_settings' => $w_settings ,
+    								'cart_badge'=>$cart_badge, 
+    								'cart_items'=>$cart_items, 
+    								'sub_total' =>$sub_total,
+    								'categories' => $categories,
+    								'total'=>$total,
+    				]);
+    }
+
+    public function updateCart(Request $request)
+    {
+    	// return $request;
+    	$validatedData = $this->validate($request, [
+    				'productID' => 'required|array',
+    				'productPrice' => 'required|array',
+    				'numProduct' => 'required|array',
+		    	    'productID.*' => 'required',
+		    	    'productPrice.*' => 'required',
+		    	    'numProduct.*'    => 'required',
+    	]);
+    	for ( $i=0; $i < sizeof($request->productID); $i++ ) { 
+    		$qty = 0;
+    		$old_qty = Cart::session(100)->get($request->productID[$i])->quantity;
+    		$new_qty = $request->numProduct[$i] - $old_qty;
+    		if ( $new_qty == 0 )
+    		{
+    			Cart::session(100)->remove($request->productID[$i]);
+    		}
+    		else
+    		{
+    			Cart::session(100)->update($request->productID[$i], array(
+	  					'quantity' => $new_qty ,
+					));
+    		}
+    	}
     	return back();
     }
 

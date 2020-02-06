@@ -8,19 +8,29 @@
         'as'   => 'getProduct'
         ]); 
     //cart-add
-    Route::post('/addToCart', [
+    Route::post('/add-to-cart', [
         'uses' => 'CartController@addToCart',
         'as'   => 'addToCart'
         ]); 
     //cart-all
-    Route::get('/viewCart', [
+    Route::get('/view-cart', [
         'uses' => 'CartController@viewCart',
         'as'   => 'viewCart'
         ]);
         //clear-cart 
-    Route::get('/clearCart', [
+    Route::get('/clear-cart', [
         'uses' => 'CartController@clearCart',
         'as'   => 'clearCart'
+        ]); 
+        //clear-cart 
+    Route::get('/all-in-cart', [
+        'uses' => 'CartController@allInCart',
+        'as'   => 'allInCart'
+        ]); 
+        //update-cart 
+    Route::post('/update-cart', [
+        'uses' => 'CartController@updateCart',
+        'as'   => 'updateCart'
         ]); 
 Auth::routes();
 //logout

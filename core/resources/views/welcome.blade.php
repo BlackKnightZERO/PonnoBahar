@@ -112,7 +112,7 @@
         <div class="wrap-header-mobile">
             <!-- Logo moblie -->        
             <div class="logo-mobile">
-                <a href="index.html"><img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO"></a>
+                <a href="{{ route('land') }}"><img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Icon header -->
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="flex-c-m h-full p-lr-10 bor5">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="{{ $cart_badge }}">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
                 </div>
@@ -309,6 +309,7 @@
             
             <div class="header-cart-content flex-w js-pscroll">
                 <ul class="header-cart-wrapitem w-full">
+                    @if($cart_empty == false)
                     @if($cart_items)
                     @foreach($cart_items as $row)
                     <li class="header-cart-item flex-w flex-t m-b-12">
@@ -326,8 +327,9 @@
                     </li>
                     @endforeach
                     @endif
+                    @endif
                 </ul>
-                
+                @if($cart_empty == false)
                 <div class="w-full">
                     <div class="header-cart-total w-full p-tb-40">
                         Total: ${{ $total}}
@@ -335,18 +337,17 @@
                         <a href="{{ route('clearCart') }}" class="flex-c-m stext-101 cl0 size-140 bg1 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">Clear All</a>
                     </div>
                     </div>
-                    
-
                     <div class="header-cart-buttons flex-w w-full">
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+
+                        <a href="{{ route('allInCart') }}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                             View Cart
                         </a>
-
-                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+                        <a href="{{ route('allInCart') }}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
                             Check Out
                         </a>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
@@ -1154,9 +1155,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
         <div class="container">
             <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-                <button class="how-pos3 hov3 trans-04 js-hide-modal1">
+                <!-- <button class="how-pos3 hov3 trans-04 js-hide-modal1">
                     <img src="{{ asset('') }}assets/front-end-assets/images/icons/icon-close.png" alt="CLOSE">
-                </button>
+                </button> -->
 
                 <div class="row">
                     <div class="col-md-6 col-lg-7 p-b-30">
