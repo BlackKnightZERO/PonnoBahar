@@ -12,6 +12,9 @@ Screens :
 ![attribute](https://user-images.githubusercontent.com/29349064/72814100-b0f39f00-3c8e-11ea-8308-00a99bba90e5.jpg)
 ![attributes](https://user-images.githubusercontent.com/29349064/72813688-fc597d80-3c8d-11ea-8314-b041cdb71916.jpg)
 ![blogtable](https://user-images.githubusercontent.com/29349064/73456680-82677980-439c-11ea-91ab-0232d6958931.jpg)
+![cart1](https://user-images.githubusercontent.com/29349064/73941608-c405a080-4917-11ea-84f8-46d77f9381f7.jpg)
+![cart2](https://user-images.githubusercontent.com/29349064/73941623-cb2cae80-4917-11ea-83f7-8bcfeb5087e0.jpg)
+
 
 
 
