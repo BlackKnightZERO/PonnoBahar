@@ -40,7 +40,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="{{ route('land') }}" class="logo">
+					<a href="{{ route('user.land') }}" class="logo">
 						<img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO">
 					</a>
 
@@ -48,7 +48,7 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="{{ route('land') }}">Home</a>
+								<a href="{{ route('user.land') }}">Home</a>
 								<!-- <ul class="sub-menu">
 									<li><a href="index.html">Homepage 1</a></li>
 									<li><a href="home-02.html">Homepage 2</a></li>
@@ -100,7 +100,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="{{ route('land') }}"><img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO"></a>
+				<a href="{{ route('user.land') }}"><img src="{{ asset('').'core/public/storage/'.$g_settings->logo }}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -230,7 +230,7 @@
 				    @foreach($cart_items as $row)
 				    <li class="header-cart-item flex-w flex-t m-b-12">
 				        <div class="header-cart-item-img">
-				            <img src="{{ asset('').'core/public/storage/'.$row->associatedModel->p_image }}" alt="IMG">
+				            <img src="{{ asset('').'core/public/storage/'.$row->associatedModel['p_image'] }}" alt="IMG">
 				        </div>
 				        <div class="header-cart-item-txt p-t-8">
 				            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
@@ -249,7 +249,7 @@
 				    <div class="header-cart-total w-full p-tb-40">
 				        Total: ${{ $total}}
 				        <div class="float-right">
-				        <a href="{{ route('clearCart') }}" class="flex-c-m stext-101 cl0 size-140 bg1 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">Clear All</a>
+				        <a href="{{ route('user.clearCart') }}" class="flex-c-m stext-101 cl0 size-140 bg1 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">Clear All</a>
 				    </div>
 				    </div>
 				    
@@ -285,7 +285,7 @@
 		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85" method="post" action="{{ route('updateCart') }}">
+	<form class="bg0 p-t-75 p-b-85" method="post" action="{{ route('user.updateCart') }}">
 		@csrf
 		<div class="container">
 			<div class="row">
@@ -307,7 +307,7 @@
 									<input type="hidden" name="productPrice[]" value="{{ $row->price }}">
 									<td class="column-1">
 										<div class="how-itemcart1">
-											<img src="{{ asset('').'core/public/storage/'.$row->associatedModel->p_image }}" alt="IMG">
+											<img src="{{ asset('').'core/public/storage/'.$row->associatedModel['p_image'] }}" alt="IMG">
 										</div>
 									</td>
 									<td class="column-2">

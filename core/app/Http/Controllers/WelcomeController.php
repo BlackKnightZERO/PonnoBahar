@@ -9,7 +9,7 @@ use App\WebsiteSetting;
 use App\Product;
 use App\Blog;
 use Cart;
-use Config;
+// use Config;
 
 class WelcomeController extends Controller
 {

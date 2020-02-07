@@ -195,4 +195,39 @@ Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' =>
         ]);
 });
 
+//User group routes
+Route::group(['prefix' => '/user', 'as' => 'user.', 'middleware' => ['auth', 'user']], function(){
 
+    //welcome
+    Route::get('/', 'User\WelcomeController@index')->name('land');
+    //get-product-AJAX
+    Route::get('/getProduct/{id}', [
+        'uses' => 'User\ProductController@getProduct',
+        'as'   => 'getProduct'
+        ]); 
+    //cart-add
+    Route::post('/add-to-cart', [
+        'uses' => 'User\CartController@addToCart',
+        'as'   => 'addToCart'
+        ]); 
+    //cart-all
+    Route::get('/view-cart', [
+        'uses' => 'User\CartController@viewCart',
+        'as'   => 'viewCart'
+        ]);
+        //clear-cart 
+    Route::get('/clear-cart', [
+        'uses' => 'User\CartController@clearCart',
+        'as'   => 'clearCart'
+        ]); 
+        //clear-cart 
+    Route::get('/all-in-cart', [
+        'uses' => 'User\CartController@allInCart',
+        'as'   => 'allInCart'
+        ]); 
+        //update-cart 
+    Route::post('/update-cart', [
+        'uses' => 'User\CartController@updateCart',
+        'as'   => 'updateCart'
+        ]); 
+    });

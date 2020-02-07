@@ -3,7 +3,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class SuperAdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -14,7 +14,7 @@ class SuperAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_type_id == 1)
+        if (Auth::check() && Auth::user()->user_type_id == 3)
         {
             return $next($request);
         }
@@ -24,3 +24,4 @@ class SuperAdminMiddleware
         }
     }
 }
+
