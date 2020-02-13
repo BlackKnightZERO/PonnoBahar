@@ -10,6 +10,7 @@ use App\Product;
 use App\Blog;
 use Cart;
 use Auth;
+use App\Order;
 use App\Http\Controllers\Controller;
 // use Config;
 
@@ -36,6 +37,8 @@ class WelcomeController extends Controller
             $total = Cart::session(Auth::user()->id)->getTotal();
             Cart::session(100)->clear();
         }
+        $ongoing_order_badge = Order::where(['user_id'=> Auth::user()->id, 'status'=>1 ])->count();
+        // return $ongoing_order_badge;
     	$categories = Category::all();
     	$g_settings = GeneralSetting::find(1);
     	$w_settings = WebsiteSetting::find(1);
@@ -45,6 +48,19 @@ class WelcomeController extends Controller
         $product_img_9 = Product::select('p_image')->where('status',1)->limit(9)->get();
         $blogs = Blog::where('status',1)->limit(3)->orderBy('id', 'DESC')->get();
 
-    	return view('front-end.welcome',['categories' => $categories, 'g_settings' => $g_settings, 'w_settings' => $w_settings, 'featured'=>$featured , 'on_sale'=>$on_sale , 'top_rate'=>$top_rate, 'product_img_9' => $product_img_9, 'blogs' => $blogs, 'cart_badge'=>$cart_badge, 'cart_items'=>$cart_items, 'total'=>$total, 'cart_empty' => $cart_empty, ]);
+    	return view('front-end.welcome',[
+                                            'categories' => $categories, 
+                                            'g_settings' => $g_settings, 
+                                            'w_settings' => $w_settings, 
+                                            'featured'=>$featured , 
+                                            'on_sale'=>$on_sale , 
+                                            'top_rate'=>$top_rate, 
+                                            'product_img_9' => $product_img_9, 
+                                            'blogs' => $blogs, 
+                                            'cart_badge'=>$cart_badge, 
+                                            'cart_items'=>$cart_items, 
+                                            'total'=>$total, 
+                                            'cart_empty' => $cart_empty, 
+                                            'ongoing_order_badge' => $ongoing_order_badge, ]);
     }
 }

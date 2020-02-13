@@ -32,6 +32,18 @@
         'uses' => 'CartController@updateCart',
         'as'   => 'updateCart'
         ]); 
+    //get-distance-AJAX
+    Route::get('/getDistance/{id}', [
+        'uses' => 'WareHouseController@getDistance',
+        'as'   => 'getProduct'
+        ]); 
+    //get-shipping-cost-AJAX
+    Route::get('/getShippingCost/{id}', [
+        'uses' => 'ShippingCostController@getShippingCost',
+        'as'   => 'getShippingCost'
+        ]); 
+    
+    
 Auth::routes();
 //logout
 Route::get('/logoutt', function(){
@@ -229,5 +241,15 @@ Route::group(['prefix' => '/user', 'as' => 'user.', 'middleware' => ['auth', 'us
     Route::post('/update-cart', [
         'uses' => 'User\CartController@updateCart',
         'as'   => 'updateCart'
+        ]); 
+        //update-cart 
+    Route::post('/order-product', [
+        'uses' => 'User\OrderController@order',
+        'as'   => 'order'
+        ]); 
+    //get-shipping-cost-AJAX
+    Route::get('/getShippingCost/{id}', [
+        'uses' => 'User\ShippingCostController@getShippingCost',
+        'as'   => 'getShippingCost'
         ]); 
     });

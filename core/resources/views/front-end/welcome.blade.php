@@ -224,7 +224,7 @@
 
                     <li class="p-b-13">
                         <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-                            My Wishlist
+                            My Wishlist & Orders
                         </a>
                     </li>
                     @if (Route::has('login'))
@@ -252,7 +252,7 @@
                     @endif
                     <li class="p-b-13">
                         <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-                            Track Oder
+                            Track Oder <span class="badge badge-info"> {{ $ongoing_order_badge }} </span>
                         </a>
                     </li>
 

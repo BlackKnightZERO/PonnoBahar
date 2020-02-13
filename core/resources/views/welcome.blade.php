@@ -80,6 +80,17 @@
                             <li>
                                 <a href="#">Contact</a>
                             </li>
+                            @auth
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                                    Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    </form>
+                                </li>
+                            @endauth
                         </ul>
                     </div>  
 
@@ -175,7 +186,17 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
-                
+                @auth
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                        Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                        </form>
+                    </li>
+                @endauth
             </ul>
         </div>
 

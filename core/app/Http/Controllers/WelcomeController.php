@@ -24,6 +24,7 @@ class WelcomeController extends Controller
     	$categories = Category::all();
     	$g_settings = GeneralSetting::find(1);
     	$w_settings = WebsiteSetting::find(1);
+        
     	$featured = Product::where('featured_status', 1)->limit(8)->get();
     	$on_sale = Product::where('on_sale_status', 1)->limit(8)->orderBy('id', 'DESC')->get();
     	$top_rate = Product::where('top_rate', 1)->limit(8)->get();

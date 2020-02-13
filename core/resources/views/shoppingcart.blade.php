@@ -285,9 +285,10 @@
 		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85" method="post" action="{{ route('updateCart') }}">
-		@csrf
+	
 		<div class="container">
+			<form class="bg0 p-t-75 p-b-85" method="post" action="{{ route('updateCart') }}">
+				@csrf
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
@@ -381,7 +382,7 @@
 
 							<div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
 								<p class="stext-111 cl6 p-t-2">
-									There are no shipping methods available. Please double check your address, or contact us if you need any help.
+									Select Shipping Location
 								</p>
 								
 								<div class="p-t-15">
@@ -390,27 +391,32 @@
 									</span>
 
 									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-										<select class="js-select2" name="time">
-											<option>Select a country...</option>
-											<option>USA</option>
-											<option>UK</option>
+										<select class="form-control" name="time" id="time">
+											<option>Select..
+											</option>
+											@if($s_location)
+											@foreach($s_location as $value)
+											<option value="{{ $value->shipping_cost }}">{{ $value->name }}</option>
+											@endforeach
+											@endif
+											
 										</select>
 										<div class="dropDownSelect2"></div>
 									</div>
+									
+									<!-- <div class="bor8 bg0 m-b-22">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="address">
+									</div> --> 
 
-									<div class="bor8 bg0 m-b-12">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-									</div>
-
-									<div class="bor8 bg0 m-b-22">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
+									 <div class="bor8 bg0 m-b-12">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="shipping_cost" id="shipping_cost" placeholder="shipping cost">
 									</div>
 									
-									<div class="flex-w">
+									<!-- <div class="flex-w">
 										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
 											Update Totals
 										</div>
-									</div>
+									</div> -->
 										
 								</div>
 							</div>
@@ -422,13 +428,17 @@
 									Total:
 								</span>
 							</div>
-
+							<input type="hidden" name="before_total" id="before_total" value="{{ $total }}">
 							<div class="size-209 p-t-1">
-								<span class="mtext-110 cl2">
+								<span class="mtext-110 cl2 total_cost">
 									${{ $total }}
+								</span>
+								<span class="mtext-110 cl2 total_cost_2">
+									
 								</span>
 							</div>
 						</div>
+						<div id="create_total_input"></div>
 
 						<!-- <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Proceed to Checkout
@@ -443,8 +453,9 @@
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
-	</form>
+	
 		
 	
 	<!-- Footer -->
@@ -621,6 +632,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				ps.update();
 			})
 		});
+	</script>
+	<script type="text/javascript">
+
+		//console.log($('.tot').text() );
+		$('#time').click(function(){
+    		var shipping_cost = $("#time").val();
+    		// console.log(parseInt(shipping_cost));
+    		var total = $('#before_total').val();
+    		// console.log(parseInt(total));
+    		// total = total.slice(1);
+			// console.log(parseInt(total));
+    		var total3 = parseInt(total) + parseInt(shipping_cost) ;
+    		// console.log(isNaN(total3));
+    		if(!isNaN(total3))
+    			{
+    			$('#create_total_input').empty();
+    			$('.total_cost').hide();
+    			$('.total_cost_2').text(`$${total3}`);
+    			$('#shipping_cost').val(`$${shipping_cost}`);
+    			$('#create_total_input').append(`<input type="hidden" name="total" value="${total3}"/>`);
+    			}
+    });       
 	</script>
 <!--===============================================================================================-->
 	<script src="{{ asset('') }}assets/front-end-assets/js/main.js"></script>

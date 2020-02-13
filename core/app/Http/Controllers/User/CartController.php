@@ -12,6 +12,7 @@ use App\Product;
 use Cart;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\ShippingLocation;
 
 class CartController extends Controller
 {
@@ -62,6 +63,7 @@ class CartController extends Controller
         $g_settings = GeneralSetting::find(1);
     	$w_settings = WebsiteSetting::find(1);
     	$categories = Category::all();
+        $s_location = ShippingLocation::all();
     	return view('front-end.shoppingcart',['g_settings' => $g_settings, 
     								'w_settings' => $w_settings ,
     								'cart_badge'=>$cart_badge, 
@@ -69,6 +71,7 @@ class CartController extends Controller
     								'sub_total' =>$sub_total,
     								'categories' => $categories,
     								'total'=>$total,
+                                    's_location' => $s_location,
     				]);
     }
 
