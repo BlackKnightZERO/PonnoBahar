@@ -2,6 +2,12 @@
 Laravel E-Commerce ( work in progress )
 ( PHP, AJAX, JQuery, Template - AdminLTE3,  Cozastore )
 
+git clone
+need to copy L5.8's vendor to core directory
+make a env file
+import db
+run
+
 Screens :
 ![login](https://user-images.githubusercontent.com/29349064/72348907-a1f87400-3705-11ea-974c-a390964ef9a0.jpg)
 ![settings](https://user-images.githubusercontent.com/29349064/72348908-a2910a80-3705-11ea-80b7-a1e210c1f067.jpg)
