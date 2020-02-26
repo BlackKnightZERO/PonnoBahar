@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2020 at 02:30 PM
+-- Generation Time: Feb 26, 2020 at 12:22 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -64,7 +64,18 @@ INSERT INTO `attributes` (`id`, `name`, `category_id`, `sub_category_id`, `statu
 (19, 'Memory Foam', 1, 5, 1, '2020-01-18 07:36:38', '2020-01-18 07:36:38'),
 (20, 'Rubber Sole', 2, 6, 1, '2020-01-18 07:37:31', '2020-01-18 07:37:31'),
 (21, 'Memory Foam', 2, 6, 1, '2020-01-18 07:37:31', '2020-01-18 07:37:31'),
-(22, 'Leather Sole', 2, 6, 1, '2020-01-18 07:37:31', '2020-01-18 07:37:31');
+(22, 'Leather Sole', 2, 6, 1, '2020-01-18 07:37:31', '2020-01-18 07:37:31'),
+(23, 'Strapless', 2, 6, 1, '2020-01-21 08:35:11', '2020-01-21 08:35:11'),
+(24, 'Ankle Strap', 2, 6, 1, '2020-01-21 08:35:11', '2020-01-21 08:35:11'),
+(25, 'Wedge Heels', 2, 6, 1, '2020-01-21 08:35:11', '2020-01-21 08:35:11'),
+(26, 'Pencil Hills', 2, 6, 1, '2020-01-21 08:35:11', '2020-01-21 08:35:11'),
+(27, 'Cone Hills', 2, 6, 1, '2020-01-21 08:35:11', '2020-01-21 08:35:11'),
+(28, 'Leather Strap', 1, 3, 1, '2020-01-21 08:43:01', '2020-01-21 08:43:01'),
+(29, 'Titanium', 1, 3, 1, '2020-01-21 08:43:01', '2020-01-21 08:43:01'),
+(30, 'Crystal glass', 1, 3, 1, '2020-01-21 08:43:01', '2020-01-21 08:43:01'),
+(31, 'Regular glass', 1, 3, 1, '2020-01-21 08:43:01', '2020-01-21 08:43:01'),
+(32, 'S', 1, 1, 1, '2020-01-26 01:56:26', '2020-01-26 01:56:26'),
+(33, 'XXL', 1, 1, 1, '2020-01-26 01:56:26', '2020-01-26 01:56:26');
 
 -- --------------------------------------------------------
 
@@ -91,9 +102,9 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `description`, `author`, `author_id`, `b_image`, `likes`, `views`, `status`, `created_at`, `updated_at`) VALUES
-(1, '8 Inspiring Ways to Wear Dresses in the Winter', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Nancy Ward', NULL, 'blog_image//jdxPUHw22JXfLv7Rs7ui2VszIZtpfZeMOadePa9f.jpeg', NULL, NULL, 1, '2020-01-20 06:12:35', '2020-01-20 06:12:35'),
-(2, 'The Great Big List of Men’s Gifts for the Holidays', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Sumitra Sheikh', NULL, 'blog_image//eWWFPItAoWc6IK9gR7WocTQloVl3toQYn37Wk0xA.jpeg', NULL, NULL, 1, '2020-01-20 06:14:53', '2020-01-20 06:14:53'),
-(3, '5 Winter-to-Spring Fashion Trends to Try Now', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Arif Faysal', NULL, 'blog_image//z4szpnzpTJSRSS2FDNKjR3AH3shndov9Lj6oSC65.jpeg', NULL, NULL, 1, '2020-01-20 06:19:54', '2020-01-20 06:19:54');
+(1, '8 Inspiring Ways to Wear Dresses in the Winter', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies, it’s still packed with goodies, in every price range. I think the lowest priced item is $5! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Nancy Ward', NULL, 'blog_image//jdxPUHw22JXfLv7Rs7ui2VszIZtpfZeMOadePa9f.jpeg', NULL, NULL, 1, '2020-01-20 06:12:35', '2020-01-30 08:00:57'),
+(2, 'The Great Big List of Men’s Gifts for the Holidays', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">After the&nbsp;</span><a href=\"https://www.papernstitchblog.com/2017/12/12/womens-gift-guide-holiday/\" target=\"_blank\" rel=\"noopener\" style=\"background-color: rgb(255, 255, 255); color: rgb(48, 198, 215); font-family: Georgia, serif;\">women’s holiday gift guide</a><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">, it only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last  weeks, and while this list isn’t quite as big as the ladies GG, it’s still packed with goodies, in every price range. I think the lowest priced item is $4.95! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Sumitra Sheikh', NULL, 'blog_image//eWWFPItAoWc6IK9gR7WocTQloVl3toQYn37Wk0xA.jpeg', NULL, NULL, 1, '2020-01-20 06:14:53', '2020-01-20 06:14:53'),
+(3, '5 Winter-to-Spring Fashion Trends to Try Now', '<p><span style=\"color: rgb(77, 71, 71); font-family: Georgia, serif;\">It only felt fair to balance things out with a giant men’s gift guide! I’ve been bookmarking some of my faves for the last few weeks, and while this list isn’t quite as big as the ladies GG, it’s packed with goodies, in every price range. I think the lowest priced item is $8! And there are more than 50 gifts on the list. Click through to see them all!</span><br></p>', 'Arif Faysal', NULL, 'blog_image//rt79iKuVlx8jidIhx3Qb0g86RfDjYPMSH3OihiVQ.jpeg', NULL, NULL, 1, '2020-01-20 06:19:54', '2020-01-30 07:40:58');
 
 -- --------------------------------------------------------
 
@@ -149,7 +160,7 @@ CREATE TABLE `general_settings` (
 --
 
 INSERT INTO `general_settings` (`id`, `title`, `logo`, `email`, `location`, `phone_1`, `phone_2`, `facebook`, `instagram`, `pinterest`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Ponno Bahar', 'settings_image//GUpdCRNqwJEyefirXKM3fSQS4etdj07wymPLpmoW.png', 'ponnobahar@gmail.com', 'Mirpur11', '017700001', NULL, 'https://facebook.com/pages/ponnobahar', 'https://ig.com/p0nn0_bahaR', NULL, 1, NULL, '2020-01-16 09:27:06');
+(1, 'Ponno Bahar', 'settings_image//GUpdCRNqwJEyefirXKM3fSQS4etdj07wymPLpmoW.png', 'ponnobahar@gmail.com', 'Mirpur11', '017700001', NULL, 'https://facebook.com/pages/ponnobahar', 'https://ig.com/p0nn0_bahaR2', NULL, 1, NULL, '2020-01-26 01:52:02');
 
 -- --------------------------------------------------------
 
@@ -179,7 +190,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2020_01_08_114204_create_sub_categories_table', 1),
 (10, '2020_01_13_090014_create_blogs_table', 1),
 (11, '2020_01_13_090054_create_general_settings_table', 1),
-(12, '2020_01_13_090138_create_website_settings_table', 1);
+(12, '2020_01_13_090138_create_website_settings_table', 1),
+(13, '2020_02_11_064926_create_ware_houses_table', 2),
+(14, '2020_02_12_095820_create_shipping_locations_table', 3),
+(15, '2020_02_13_091805_create_orders_table', 4),
+(16, '2020_02_26_093625_add_attributes_to_orders', 5);
 
 -- --------------------------------------------------------
 
@@ -194,6 +209,41 @@ CREATE TABLE `nav_menus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `order_u_id` bigint(20) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `product_price` int(11) DEFAULT NULL,
+  `product_qty` int(11) DEFAULT NULL,
+  `shipping_location_id` int(11) DEFAULT NULL,
+  `ship_to` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_cost` int(11) DEFAULT NULL,
+  `order_subtotal` int(11) DEFAULT NULL,
+  `order_total` int(11) DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `attributes` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `order_u_id`, `product_id`, `product_price`, `product_qty`, `shipping_location_id`, `ship_to`, `shipping_cost`, `order_subtotal`, `order_total`, `address`, `status`, `created_at`, `updated_at`, `attributes`) VALUES
+(1, 2, 15815909698152, 4, 350, 3, 1, 'Bonani, Dhaka', 60, 1050, 1110, 'Bonani, Lake 18', 1, '2020-02-13 04:49:29', '2020-02-13 04:49:29', NULL),
+(5, 2, 15815912708942, 4, 350, 2, 2, 'pallabi, Mirpur', 60, 700, 760, 'asd', 1, '2020-02-13 04:54:30', '2020-02-13 04:54:30', NULL),
+(6, 2, 15827150403142, 4, 350, 2, 1, 'Bonani, Dhaka', 60, 4300, 4360, 'Bonani 18', 1, '2020-02-26 05:04:00', '2020-02-26 05:04:00', '[\"Long\",\"Short\",\"sleeveless\",\"Cotton\"]'),
+(7, 2, 15827150403142, 2, 1200, 3, 1, 'Bonani, Dhaka', 60, 4300, 4360, 'Bonani 18', 1, '2020-02-26 05:04:00', '2020-02-26 05:04:00', '[\"M\"]');
 
 -- --------------------------------------------------------
 
@@ -253,7 +303,35 @@ INSERT INTO `products` (`id`, `name`, `p_image`, `description_title`, `descripti
 (10, 'Blue Handbag', 'product_image//7HoM67s3OdsG6nfkKftG22IacOCv2RzQRByuVrKy.jpeg', 'Blue Handbag', '<p>Available colors : Dark Blue, Dark Brown</p>', 1300, 3, 1, NULL, 2, 4, '10,11,13', 1, 35, NULL, 1, 1, 1, 1, '2020-01-18 08:03:21', '2020-01-18 08:03:21'),
 (11, 'Jeans', 'product_image//29qfMOUsycwWdqNZW9H8hs6scRzRwnqc6u3gOHfx.jpeg', 'Niagra Jeans', '<p>Stylish Jeans for Men</p>', 650, 5, 1, NULL, 1, 1, '1,3', 1, 70, NULL, 1, 1, 1, 1, '2020-01-18 08:04:36', '2020-01-18 08:04:36'),
 (12, 'Full Leather Bag', 'product_image//b6UhyStH3h8RccGV6IGdb6BgnCIkNi8ViH3HHiNZ.jpeg', 'Full Leather Bag', NULL, 2000, 5, 1, NULL, 2, 4, '10,13', 1, 20, NULL, 1, 1, 1, 1, '2020-01-18 08:05:41', '2020-01-18 08:05:41'),
-(13, 'Ash Hoodie', 'product_image//nCoj5XLW9u7tBJlx4vsaJ5iyZVxbhdba0Nmzx9bC.jpeg', 'Ash Hoodie', '<p>Stylish hoodie for ladies.</p>', 890, 25, 1, NULL, 2, 2, '4', 1, 300, NULL, 1, 1, 1, 1, '2020-01-18 08:07:02', '2020-01-18 08:07:02');
+(13, 'Ash Hoodie', 'product_image//nCoj5XLW9u7tBJlx4vsaJ5iyZVxbhdba0Nmzx9bC.jpeg', 'Ash Hoodie', '<p>Stylish hoodie for ladies.</p>', 890, 25, 1, NULL, 2, 2, '4', 1, 300, NULL, 1, 1, 1, 1, '2020-01-18 08:07:02', '2020-01-18 08:07:02'),
+(14, 'Shirt', 'product_image//yLOdaByUC3i50upzt7nGqtlz2Wjof7Y1qdNUd67f.jpeg', 'Black T Shirt', '<p>Stylish T shirt for men</p>', 150, 5, 1, NULL, 1, 1, '2,3,32,33', 1, 50, NULL, 1, 1, 1, 1, '2020-01-26 01:59:30', '2020-01-26 01:59:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipping_locations`
+--
+
+CREATE TABLE `shipping_locations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lattitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_cost` int(11) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `shipping_locations`
+--
+
+INSERT INTO `shipping_locations` (`id`, `name`, `lattitude`, `longitude`, `shipping_cost`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Bonani, Dhaka', '23.801212', '90.13777', 60, 1, '2020-02-11 18:00:00', '2020-02-11 18:00:00'),
+(2, 'pallabi, Mirpur', '23.804235', '90.13999', 60, 1, '2020-02-11 18:00:00', '2020-02-11 18:00:00'),
+(3, 'Tongi, Dhaka', '23.874', '90.379', 80, 1, '2020-02-11 18:00:00', '2020-02-11 18:00:00'),
+(4, 'Munshiganj, Dhaka', '23.999', '90.777', 100, 1, '2020-02-11 18:00:00', '2020-02-11 18:00:00');
 
 -- --------------------------------------------------------
 
@@ -313,7 +391,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user_name`, `user_type_id`, `contact`, `status`, `menu_permission`, `email`, `profile_picture`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Arif Faysal', 'arif09', 1, '01777777', 1, '*', 'superadmin@gmail.com', 'user_image//b04jDqfF9Jc02hJavnb9kBnZFNeX7CBD8sGePG0L.jpeg', NULL, '$2y$10$RBG9LhgtT98v2l1zoZDjjeojXyNo12zOcEN6mVvoBMnYCAOKIkbYq', NULL, '2020-01-07 12:00:00', '2020-01-08 00:01:32');
+(1, 'Arif Faysal', 'arif09', 1, '01777778', 1, '*', 'superadmin@gmail.com', 'user_image//b04jDqfF9Jc02hJavnb9kBnZFNeX7CBD8sGePG0L.jpeg', NULL, '$2y$10$RBG9LhgtT98v2l1zoZDjjeojXyNo12zOcEN6mVvoBMnYCAOKIkbYq', NULL, '2020-01-07 12:00:00', '2020-02-07 01:43:58'),
+(2, 'Rifat Zabin', 'rifat_08', 3, '0178909090', 1, '*', 'rifat@gmail.com', 'user_image//k2.jpeg', NULL, '$2y$10$RBG9LhgtT98v2l1zoZDjjeojXyNo12zOcEN6mVvoBMnYCAOKIkbYq', NULL, '2020-02-06 18:00:00', '2020-02-06 18:00:00');
 
 -- --------------------------------------------------------
 
@@ -343,7 +422,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `user_id`, `education`, `skill`, `note`, `flat_no`, `house_no`, `road_no`, `state`, `zip_code`, `country`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'UIU', 'PHP, Bootstrap, HTML5, CSS3, LARAVEL, REST API', 'Anything Is Possible', '66', '79', 'Bhooter goli', 'Green Road', '1221', 'Bangladesh', 1, '2020-01-07 12:00:00', '2020-01-08 00:01:21');
+(1, 1, 'UIU', 'PHP, Bootstrap, HTML5, CSS3, LARAVEL, REST API', 'Anything Is Possible', '66', '79', 'Bhooter goli', 'Green Road', '1221', 'Bangladesh', 1, '2020-01-07 12:00:00', '2020-02-07 01:43:58');
 
 -- --------------------------------------------------------
 
@@ -365,7 +444,34 @@ CREATE TABLE `user_types` (
 
 INSERT INTO `user_types` (`id`, `title`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 1, '2020-01-07 12:00:00', '2020-01-07 12:00:00'),
-(2, 'Admin', 1, '2020-01-12 18:00:00', '2020-01-12 18:00:00');
+(2, 'Admin', 1, '2020-01-12 18:00:00', '2020-01-12 18:00:00'),
+(3, 'User', 1, '2020-02-06 18:00:00', '2020-02-06 18:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ware_houses`
+--
+
+CREATE TABLE `ware_houses` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mamanger_id` int(11) DEFAULT NULL,
+  `lattitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `longitude` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ware_houses`
+--
+
+INSERT INTO `ware_houses` (`id`, `name`, `address`, `contact`, `mamanger_id`, `lattitude`, `longitude`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Banani', 'House 14, Lake 18, Banani, Dhaka', '01999999999', 1, '23.800221', '90.4140', 1, '2020-02-10 18:00:00', '2020-02-10 18:00:00');
 
 -- --------------------------------------------------------
 
@@ -399,7 +505,7 @@ CREATE TABLE `website_settings` (
 --
 
 INSERT INTO `website_settings` (`id`, `landing1_sub_header1`, `landing1_header1`, `landing1_slider1`, `landing1_sub_header2`, `landing1_header2`, `landing1_slider2`, `landing1_sub_header3`, `landing1_header3`, `landing1_slider3`, `about_us`, `footer_header_1`, `footer_text_1`, `footer_header_2`, `footer_text_2`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Women Collection 2020', 'NEW SEASON', 'settings_image//Gh5g1VvdIrbsKcpmfUaZMAoqlgYpSMBcXvVdEWmB.jpeg', 'Men New-Season', 'JACKETS & COATS', 'settings_image//W4ndt2DP5wgtzDHLuyyBLs0C5ujyRXI3Y3cWcz5k.jpeg', 'Men Collection 2020', 'NEW ARRIVALS', 'settings_image//LWXe80az9ExMtw6EjqxbKGqZ6b8eywuMscLbbqA1.jpeg', '<p>Ponno Bahar is an organization focused fully on customer satisfaction. We care for our clients. Responsibility &amp; Respectfulness is our motto. We are also bringing new features to our system. SO STAY TUNED ! Happy Shopping in 2020 !!&nbsp;&nbsp;</p>', 'GET IN TOUCH', 'Any questions? Let us know in store at 4th floor, 379 Pallabi, Mirpur, Dhaka 1001 or call us on +88000001', 'Make Money with Us', 'Be a part of our regular supplier &amp; top seller. Contact our email address to set you up for an Vendor Account.', 1, NULL, '2020-01-18 06:25:50');
+(1, 'Women Collection 2020', 'NEW SEASON', 'settings_image//Gh5g1VvdIrbsKcpmfUaZMAoqlgYpSMBcXvVdEWmB.jpeg', 'Men New-Season 2020', 'JACKETS & COATS', 'settings_image//r7UclmvQw4dxcsnVAxA5HG1uyCiLDlpOToa03ztf.jpeg', 'Men Collection 2019', 'NEW ARRIVALS', 'settings_image//LWXe80az9ExMtw6EjqxbKGqZ6b8eywuMscLbbqA1.jpeg', '<p>Ponno Bahar is an organization focused fully on customer satisfaction. We care for our clients. Responsibility &amp; Respectfulness is our motto. We are also bringing new features to our system. SO STAY TUNED ! Happy Shopping in 2020 !!&nbsp;&nbsp;</p>', 'GET IN TOUCH', 'Any questions? Let us know in store at 4th floor, 379 Pallabi, Mirpur, Dhaka 1001 or call us on +8801673001', 'Make Money with Us', 'Be a part of our regular supplier &amp; top seller. Contact our email address to set you up for an Vendor Account.', 1, NULL, '2020-02-07 01:37:33');
 
 --
 -- Indexes for dumped tables
@@ -442,6 +548,12 @@ ALTER TABLE `nav_menus`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -451,6 +563,12 @@ ALTER TABLE `password_resets`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shipping_locations`
+--
+ALTER TABLE `shipping_locations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -479,6 +597,12 @@ ALTER TABLE `user_types`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ware_houses`
+--
+ALTER TABLE `ware_houses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `website_settings`
 --
 ALTER TABLE `website_settings`
@@ -492,7 +616,7 @@ ALTER TABLE `website_settings`
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -516,7 +640,7 @@ ALTER TABLE `general_settings`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `nav_menus`
@@ -525,10 +649,22 @@ ALTER TABLE `nav_menus`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `shipping_locations`
+--
+ALTER TABLE `shipping_locations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sub_categories`
@@ -540,7 +676,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_details`
@@ -552,7 +688,13 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `user_types`
 --
 ALTER TABLE `user_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ware_houses`
+--
+ALTER TABLE `ware_houses`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `website_settings`

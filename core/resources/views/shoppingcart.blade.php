@@ -314,7 +314,11 @@
 									<td class="column-2">
 										<a href="">
 										{{ $row->name }} 
-										</a>
+										
+										</a><br>
+										@foreach($row->attributes['0'] as $link)
+										    <small>{{ $link }}</small>
+										@endforeach
 									</td>
 									<td class="column-3">$ {{ $row->price }}</td>
 									<td class="column-4">
@@ -409,7 +413,7 @@
 									</div> --> 
 
 									 <div class="bor8 bg0 m-b-12">
-										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="shipping_cost" id="shipping_cost" placeholder="shipping cost">
+										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="shipping_cost" id="shipping_cost" placeholder="shipping cost" readonly="readonly">
 									</div>
 									
 									<!-- <div class="flex-w">

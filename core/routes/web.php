@@ -48,7 +48,7 @@ Auth::routes();
 //logout
 Route::get('/logoutt', function(){
 Auth::logout();
-return Redirect::route('home');
+return Redirect::route('land');
 })->name('logoutt');
 
 //SuperAdmin group routes
@@ -251,5 +251,10 @@ Route::group(['prefix' => '/user', 'as' => 'user.', 'middleware' => ['auth', 'us
     Route::get('/getShippingCost/{id}', [
         'uses' => 'User\ShippingCostController@getShippingCost',
         'as'   => 'getShippingCost'
+        ]); 
+        //invoice
+    Route::get('/generate-invoice', [
+        'uses' => 'User\InvoiceController@generateInvoice',
+        'as'   => 'generateInvoice'
         ]); 
     });

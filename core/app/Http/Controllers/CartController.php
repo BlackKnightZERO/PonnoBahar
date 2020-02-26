@@ -17,9 +17,11 @@ class CartController extends Controller
     //
     public function addToCart(Request $request)
     {
+        // return $request;
     	$validatedData = $request->validate([
     		'productID' => 'required',
     		'numProduct' => 'required',
+            'checkboxarr.*' => 'required',
     	]);
 
     	$Product = Product::find($request->productID);
@@ -34,10 +36,11 @@ class CartController extends Controller
     	    'name' => $Product->name,
     	    'price' => $Product->present_price,
     	    'quantity' => $request->numProduct,
-    	    'attributes' => array(),
+    	    'attributes' => array($request->checkboxarr),
     	    'associatedModel' => $Product
     	));
     	$cart_badge = Cart::session(100)->getContent()->count();
+        // return $cart_badge = Cart::session(100)->getContent();
 		return back()->with('cart_badge',$cart_badge);
     }
 

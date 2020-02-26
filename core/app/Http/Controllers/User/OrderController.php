@@ -24,11 +24,13 @@ class OrderController extends Controller
     		'product_id.*' => 'required',
     	    'product_price.*' => 'required',
     	    'product_qty.*'    => 'required',
+            'product_atts.*'    => 'required',
     	]);
     	// return $validatedData;
     	$order_id = time() . rand(1,999) . $request->user_id;
-
+        
     	for ( $i=0; $i < sizeof($request->product_id); $i++ ) { 
+            // print_r(json_decode($request->product_atts[$i]));
     		$order = new Order();
     		$order->user_id = $request->user_id ;
     		$order->order_u_id = $order_id ;
@@ -42,9 +44,11 @@ class OrderController extends Controller
     		$order->product_id = $request->product_id[$i] ;
     		$order->product_price = $request->product_price[$i] ;
     		$order->product_qty = $request->product_qty[$i] ;
+            $order->attributes = $request->product_atts[$i] ;
 
     		$order->save();
     	}
+        // exit;
     	Cart::session(Auth::user()->id)->clear();
     	return redirect()->route('user.land');
     }

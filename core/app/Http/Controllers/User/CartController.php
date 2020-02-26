@@ -20,9 +20,11 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         // return Auth::user()->id;
+        // return $request;
     	$validatedData = $request->validate([
     		'productID' => 'required',
     		'numProduct' => 'required',
+            'checkboxarr.*' => 'required',
     	]);
         // return $validatedData;
     	$Product = Product::find($request->productID);
@@ -36,7 +38,7 @@ class CartController extends Controller
     	    'name' => $Product->name,
     	    'price' => $Product->present_price,
     	    'quantity' => $request->numProduct,
-    	    'attributes' => array(),
+    	    'attributes' => array($request->checkboxarr),
     	    'associatedModel' => $Product
     	));
     	$cart_badge = Cart::session(Auth::user()->id)->getContent()->count();
@@ -100,7 +102,6 @@ class CartController extends Controller
                         'quantity' => $new_qty ,
                     ));
             }
-
         }
     	return back();
     }

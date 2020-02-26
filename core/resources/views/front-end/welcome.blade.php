@@ -1418,24 +1418,59 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                               dataType :"json",
                               data :{},
                               success:function(data) {
-                                console.log(data);
-                                 $(".p-price").text("Price: $"+data.present_price);
-                                 $(".p-title").text(data.description_title);
-                                 $(".p-desc").append(data.description_details);
+                                // console.log(data);
+                                //  $(".p-price").text("Price: $"+data.present_price);
+                                //  $(".p-title").text(data.description_title);
+                                //  $(".p-desc").append(data.description_details);
+
+                                //   var img = data.p_image;
+                                //   $(".left-part").append(
+                                //       `<div class="wrap-pic-w pos-relative">
+                                //                 <img src="{{ asset('').'core/public/storage/' }}${data.p_image}" alt="IMG-PRODUCT">
+
+                                //                 <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{ asset('').'core/public/storage/' }}${data.p_image}">
+                                //                     <i class="fa fa-expand"></i>
+                                //                 </a>
+                                //             </div>`
+                                //     );
+                                //  $('.p_id').append(
+                                //     `<input type="hidden" name="productID" value="${data.id}">`
+                                //     );
+                                // console.log(data);
+                                console.log(data['a']);
+                                 $(".p-price").text("Price: $"+data['p'].present_price);
+                                 $(".p-title").text(data['p'].description_title);
+                                 $(".p-desc").append(data['p'].description_details);
 
                                   var img = data.p_image;
                                   $(".left-part").append(
                                       `<div class="wrap-pic-w pos-relative">
-                                                <img src="{{ asset('').'core/public/storage/' }}${data.p_image}" alt="IMG-PRODUCT">
+                                                <img src="{{ asset('').'core/public/storage/' }}${data['p'].p_image}" alt="IMG-PRODUCT">
 
-                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{ asset('').'core/public/storage/' }}${data.p_image}">
+                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{ asset('').'core/public/storage/' }}${data['p'].p_image}">
                                                     <i class="fa fa-expand"></i>
                                                 </a>
                                             </div>`
                                     );
                                  $('.p_id').append(
-                                    `<input type="hidden" name="productID" value="${data.id}">`
-                                    );
+                                    `<input type="hidden" name="productID" value="${data['p'].id}">`
+                                    );  
+
+                                 $.each(data['a'], function(k, v) {
+                                    var container = $('.p-atts');
+                                    // $('<input />', { type: 'checkbox', value: v.id, name: 'checkboxarr[]'}).appendTo(container);
+                                    // $('<label />', { text: v.name }).appendTo(container);
+                                    container.append(`
+                                        <div class="row justify-content-start">
+                                        <div class="col-md-auto">
+                                    <input type="checkbox" value="${v.name}" name="checkboxarr[]">
+                                        </div>
+                                        <div class="col-md-auto">
+                                    ${v.name}
+                                        </div>
+                                        </div>    
+                                        `);
+                                 });
                                },
                                 error: function()
                                {

@@ -315,7 +315,10 @@
 									<td class="column-2">
 										<a href="">
 										{{ $row->name }} 
-										</a>
+										</a><br>
+										@foreach($row->attributes['0'] as $link)
+										    <small>{{ $link }}</small>
+										@endforeach
 									</td>
 									<td class="column-3">$ {{ $row->price }}</td>
 									<td class="column-4">
@@ -367,7 +370,15 @@
 					<input id="product_id" type="hidden" name="product_id[]" value="{{ $row->id }}">
 					<input id="product_price" type="hidden" name="product_price[]" value="{{ $row->price }}">
 					<input id="product_qty" type="hidden" name="product_qty[]" value="{{ $row->quantity }}">
+						<!-- @foreach($row->attributes['0'] as $link)
+							<input type="hidden" name="product_atts[{{ $row->id }}][]" value="{{ $link }}">
+						@endforeach -->
+						<?php $var = json_encode($row->attributes['0']); 
+						echo $var;
+						?>
+						<input type="hidden" name="product_atts[]" value="{{ $var }}">
 					@endforeach
+					
 					@endif
 
 					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">

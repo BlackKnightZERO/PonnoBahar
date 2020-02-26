@@ -101,7 +101,12 @@ class ProductController extends Controller
 
     public function getProduct($id)
     {
+        // $product = Product::find($id);
+        // return $product;
         $product = Product::find($id);
-        return $product;
+        $arr['p'] = $product;
+        $subcategory = SubCategory::find($product->sub_category_id);
+        $arr['a'] = $subcategory->attribute;
+        return $arr;
     }
 }
