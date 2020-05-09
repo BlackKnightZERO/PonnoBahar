@@ -10,7 +10,6 @@ use App\Attribute;
 use App\Product;
 use Image;
 use App\GeneralSetting;
-use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {

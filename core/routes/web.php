@@ -43,13 +43,11 @@
         'as'   => 'getShippingCost'
         ]); 
     
-    
 Auth::routes();
-//logout
-Route::get('/logoutt', function(){
-Auth::logout();
-return Redirect::route('land');
-})->name('logoutt');
+// Route::get('/logoutt', function(){
+// Auth::logout();
+// return Redirect::route('land');
+// })->name('logoutt');
 
 //SuperAdmin group routes
 Route::group(['prefix' => '/superadmin', 'as' => 'super.admin.', 'middleware' => ['auth', 'superadmin']], function(){

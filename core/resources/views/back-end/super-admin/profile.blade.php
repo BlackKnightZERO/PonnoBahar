@@ -430,12 +430,15 @@
 		                        <input type="hidden" name="profile_picture_url" value="{{ Auth::user()->profile_picture }}"> -->
 		                        <input type="file" name="profile_picture" class="form-control">
 		                        <input type="hidden" name="oldPic" class="form-control" value="{{ Auth::user()->profile_picture }}">
+
+                            
 		                        <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
 		                     <!--  </div> -->
 		                      <!-- <div class="input-group-append">
 		                        <span class="input-group-text" id="">Upload</span>
 		                      </div> -->
 		                    </div>
+                        <img id="myImg" src="#" alt="your image" style="height: 220px; width: 220px; border-radius: 5%; margin: 3% auto;">
 		                  </div>
 		              	</div>
 		             </div> 	
@@ -491,4 +494,26 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+    <script type="text/javascript">
+      $(function () {
+        $(":file").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = imageIsLoaded;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    function imageIsLoaded(e) {
+        $('#myImg').attr('src', e.target.result);
+        $('#yourImage').attr('src', e.target.result);
+    };
+
+
+    </script>
+
+
 @endsection

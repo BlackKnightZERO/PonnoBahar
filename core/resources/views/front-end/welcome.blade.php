@@ -243,7 +243,7 @@
                     @if (Route::has('register'))
 
                     <li class="p-b-13">
-                        <a href="{{ route('register') }}" class="stext-102 cl2 hov-cl1 trans-04">
+                        <a href="{{ route('login') }}" class="stext-102 cl2 hov-cl1 trans-04">
                             Register
                         </a>
                     </li>
